@@ -1,0 +1,3 @@
+#!/bin/bash
+# path old-file old-hex old-mode new-file new-hex new-mode
+[ $# -eq 7 ] && extMerge "$2" "$5"

@@ -1,0 +1,19 @@
+#!/bin/bash
+views=`cleartool lsview -s |grep echekai_.*_view`
+read -a vs < <(echo $views)
+
+for arg in ${vs[@]}
+do
+    echo $arg :
+    cleartool catcs -tag $arg
+    echo
+done
+
+select v in ${vs[@]}
+do
+    sel=$v
+    break
+done
+
+echo selected $sel
+cleartool setview $sel
