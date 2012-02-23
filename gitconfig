@@ -1,6 +1,6 @@
 [user]
-	name = kelvin
-	email = kowochen@gmail.com
+    name = kelvin
+    email = kowochen@gmail.com
 [merge]
     tool = extMerge
 [mergetool "extMerge"]
@@ -9,4 +9,4 @@
 [diff]
     external = extDiff
 [core]
-	gitproxy = gitproxy
+    gitproxy = gitproxy

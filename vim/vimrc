@@ -8,12 +8,90 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" Make backspace behave in a sane manner.
-set backspace=indent,eol,start
-
-" Switch syntax highlighting on
+" Switch syntax highlighting on.
 syntax on
 
-" Enable file type detection and do language-dependent indenting.
+" Enable file type detection, plugin and language-dependent indenting.
 filetype plugin indent on
+
+if has("gui_running")
+    " color scheme define 
+    silent exec "colorscheme night"
+    
+    " guifont
+    if has("win32")
+        set guifont=Fixedsys\ Console:h11
+    else
+        set guifont=MiscFixed\ 11
+    endif
+    
+    " Maximize window when enter vim
+    if has("win32")
+        au GUIEnter * simalt ~x 
+    else
+        " TODO: no way right now
+    endif
+
+else " if we are in terminal mode
+    silent exec "colorscheme darkdot"
+endif
+
+
+" Make backspace behave in a sane manner, allow backspacing over everything in insert mode.
+set backspace=indent,eol,start
+
+set autoindent 
+set smartindent 
+
+set shiftwidth=4 " set indent to 4 spaces
+set tabstop=4 " set tabstop to 4 spaces
+set expandtab " set expandtab on, the tab will be change to space automaticaly
+
+set clipboard=unnamed " use clipboard register '*'(unnamed) for all y, d, c, p ops
+
+set guioptions+=b " Present the bottom scrollbar when the longest visible line exceen the window
+set guioptions-=m " disable menu 
+set guioptions-=T " disable toolbar
+
+set langmenu=none " always use English menu
+
+set autoread " auto read same-file change 
+
+set showmatch " show matching paren, actually shows
+set matchtime=0 " 0 second to show the matching paren ( much faster )
+set number " Show LineNumber
+set scrolloff=0 " minimal number of screen lines to keep above and below the cursor 
+set nowrap " I don't like wrap, cause in split window mode, it feel strange
+
+set wildmenu " turn on wild menu, try typing :h and press <Tab> 
+set showcmd	" display incomplete commands
+set cmdheight=1 " 1 screen lines to use for the command-line 
+set ruler " show the cursor position all the time
+set hid " allow to change buffer without saving 
+set shortmess=atI " shortens messages to avoid 'press a key' prompt 
+set lazyredraw " do not redraw while executing macros (much faster) 
+set display+=lastline " for easy browse last line with wrap text
+
+set showfulltag " show tag with function protype.
+
+set hlsearch " highlight search
+set incsearch " do incremental searching
+set ignorecase " Set search/replace pattern to ignore case 
+set smartcase " Set smartcase mode on, If there is upper case character in the search patern, the 'ignorecase' option will be override.
+
+set history=50 " keep 50 lines of command line history
+set updatetime=1000 " default = 4000
+set nobackup " make no backup file and leave it around 
+set noswapfile " no swap file
+
+
+" map Up & Down to gj & gk, helpful for wrap text edit
+noremap <unique> <Up> gk
+noremap <unique> <Down> gj
+
+" win-like select all
+nnoremap <unique> <C-a> ggvG$
+
+" clear hlsearch and redraw screen
+nnoremap <unique> <C-l> :nohlsearch<CR><C-l>
 
