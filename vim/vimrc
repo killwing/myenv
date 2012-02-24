@@ -2,11 +2,15 @@
 "     for Unix and OS/2:  ~/.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "
-"  If you don't understand a setting in here, just type ':h setting'.
+"  If you don't understand a setting in here, just type :h 'setting'.
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+
+" Second, init vim-pathogen
+call pathogen#infect()
+
 
 " Switch syntax highlighting on.
 syntax on
@@ -36,6 +40,14 @@ else " if we are in terminal mode
     silent exec "colorscheme darkdot"
 endif
 
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+autocmd BufReadPost *
+\ if line("'\"") > 0 && line("'\"") <= line("$") |
+\   exe "normal g`\"" |
+\ endif
+
 
 " Make backspace behave in a sane manner, allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
@@ -64,9 +76,10 @@ set scrolloff=0 " minimal number of screen lines to keep above and below the cur
 set nowrap " I don't like wrap, cause in split window mode, it feel strange
 
 set wildmenu " turn on wild menu, try typing :h and press <Tab> 
-set showcmd	" display incomplete commands
-set cmdheight=1 " 1 screen lines to use for the command-line 
 set ruler " show the cursor position all the time
+set showcmd	" display incomplete commands
+set showmode " display edit mode
+set cmdheight=1 " 1 screen lines to use for the command-line 
 set hid " allow to change buffer without saving 
 set shortmess=atI " shortens messages to avoid 'press a key' prompt 
 set lazyredraw " do not redraw while executing macros (much faster) 
@@ -84,14 +97,25 @@ set updatetime=1000 " default = 4000
 set nobackup " make no backup file and leave it around 
 set noswapfile " no swap file
 
+set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%]
+set laststatus=2
 
-" map Up & Down to gj & gk, helpful for wrap text edit
-noremap <unique> <Up> gk
-noremap <unique> <Down> gj
+set whichwrap=b,s,<,>,[,]
+set formatoptions+=mB	    
+
+" always use unix format
+set fileformat=unix
+set fileformats=unix
+
+" moving helpful for wrap text edit
+noremap <unique> k gk
+noremap <unique> j gj
 
 " win-like select all
-nnoremap <unique> <C-a> ggvG$
+nnoremap <unique> <leader>a ggvG$
 
-" clear hlsearch and redraw screen
+" clear hlsearch and refresh
 nnoremap <unique> <C-l> :nohlsearch<CR><C-l>
 
+" Yanking
+nnoremap Y y$
