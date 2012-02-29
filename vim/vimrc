@@ -76,7 +76,6 @@ set scrolloff=0 " minimal number of screen lines to keep above and below the cur
 set nowrap " I don't like wrap, cause in split window mode, it feel strange
 
 set wildmenu " turn on wild menu, try typing :h and press <Tab> 
-set wildmode=longest,list
 set wildignore+=*.a,*.o
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
 set wildignore+=.DS_Store,.git,.hg,.svn
@@ -109,27 +108,28 @@ set laststatus=2
 set whichwrap=b,s,<,>,[,]
 set formatoptions+=mB	    
 
-" always use unix format
-set fileformat=unix
-set fileformats=unix
+" auto detect file formats
+set fileformats=unix,dos,mac
+
+set encoding=utf-8
+" auto detect file encodings
+lan mes zh_CN.utf-8
+set fileencodings=ucs-bom,utf-8,chinese,japanese
 
 
 " wean yourself off the arrow keys etc.!
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
-noremap <Home> <nop>
-noremap <End> <nop>
-noremap <PageUp> <nop>
-noremap <PageDown> <nop>
+noremap <unique> <Up> <nop>
+noremap <unique> <Down> <nop>
+noremap <unique> <Left> <nop>
+noremap <unique> <Right> <nop>
+noremap <unique> <Home> <nop>
+noremap <unique> <End> <nop>
+noremap <unique> <PageUp> <nop>
+noremap <unique> <PageDown> <nop>
 
 " moving helpful for wrap text edit
 noremap <unique> k gk
 noremap <unique> j gj
-
-"noremap <unique> jj <C-f>
-"noremap <unique> kk <C-b>
 
 " win-like select all
 nnoremap <unique> <leader>a ggvG$
@@ -140,3 +140,38 @@ nnoremap <unique> <C-l> :nohlsearch<CR><C-l>
 " Yanking
 nnoremap Y y$
 
+" auto close and get out
+inoremap <unique> ( ()<ESC>:let leavechar=")"<CR>i
+inoremap <unique> [ []<ESC>:let leavechar="]"<CR>i
+inoremap <unique> { {}<ESC>:let leavechar="}"<CR>i
+inoremap <unique> < <><ESC>:let leavechar=">"<CR>i
+inoremap <unique> " ""<ESC>:let leavechar="\""<CR>i
+inoremap <unique> ' ''<ESC>:let leavechar="'"<CR>i
+inoremap <unique> <C-k> <ESC>:exec "normal f" . leavechar<CR>a
+
+
+func Eatchar(pat)
+   let c = nr2char(getchar(0))
+   return (c =~ a:pat) ? '' : c
+endf
+
+" C++ snippets
+func AbbrevCpp()
+    iunmap {
+    iunmap <
+    inoremap <unique> { {}<LEFT><CR><ESC>O
+
+    iabbr <buffer> hg <ESC>"%pgUUI#ifndef <ESC>f.R_<ESC>o<ESC>"%pgUUI#define <ESC>f.R_<ESC>o<ESC>"%pgUUI#endif // <ESC>f.R_<ESC><C-cr>O<CR><C-cr><C-R>=AbbrevEatChar('\s')<CR>
+    iabbr <buffer> #h <ESC>"%pT.DAh"<ESC>I#include "<ESC>o<CR><C-R>=AbbrevEatChar('\s')<CR>
+    iabbr <buffer> uns using namespace;<LEFT>
+    iabbr <buffer> #i #include
+    iabbr <buffer> #d #define
+    iabbr <buffer> #p #pragma
+    iabbr <buffer> ns namespace {
+    iabbr <buffer> fori for (int i=0;; i++<ESC>o{<ESC>kk^f;a<C-R>=AbbrevEatChar('\s')<CR> 
+    iabbr <buffer> cl class<CR>{<DOWN>;<C-cr><UP>public:<CR><C-R>=AbbrevEatChar('\s')<CR>
+    iabbr <buffer> try try<CR>catch (const Exception& e<ESC>o{<ESC>kkO{<C-R>=AbbrevEatChar('\s')<CR>
+    iabbr <buffer> sw switch (<ESC>o{case 0:<CR>break;<CR>default:<CR>break;<ESC>[{k^f(a<C-R>=AbbrevEatChar('\s')<CR>
+    iabbr <buffer> if if (<ESC>o{<ESC>kk^f(a<C-R>=AbbrevEatChar('\s')<CR>
+    iabbr <buffer> ifel if (<ESC>o{<ESC>joelse<CR>{<ESC>kkkkkk^f(a<C-R>=AbbrevEatChar('\s')<CR>
+endf
