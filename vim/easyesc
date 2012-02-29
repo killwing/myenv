@@ -1,0 +1,19 @@
+#!/bin/bash
+
+case $1 in
+        on)
+                echo "Mapping Caps Lock to Esc..."
+                xmodmap -e "clear lock"
+                xmodmap -e "keycode 0x42 = Escape"
+                echo "Done."
+                ;;
+        off)
+                echo "Mapping Caps Lock to Caps Lock..."
+                xmodmap -e "keycode 0x42 = Caps_Lock"
+                xmodmap -e "add lock = Caps_Lock"
+                echo "Done."
+                ;;
+        *)
+                echo "Usage: toggle-caps-and-esc {on|off}"
+                ;;
+esac

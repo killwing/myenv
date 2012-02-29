@@ -76,6 +76,12 @@ set scrolloff=0 " minimal number of screen lines to keep above and below the cur
 set nowrap " I don't like wrap, cause in split window mode, it feel strange
 
 set wildmenu " turn on wild menu, try typing :h and press <Tab> 
+set wildmode=longest,list
+set wildignore+=*.a,*.o
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+set wildignore+=.DS_Store,.git,.hg,.svn
+set wildignore+=*~,*.swp,*.tmp
+
 set ruler " show the cursor position all the time
 set showcmd	" display incomplete commands
 set showmode " display edit mode
@@ -107,9 +113,23 @@ set formatoptions+=mB
 set fileformat=unix
 set fileformats=unix
 
+
+" wean yourself off the arrow keys etc.!
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+noremap <Home> <nop>
+noremap <End> <nop>
+noremap <PageUp> <nop>
+noremap <PageDown> <nop>
+
 " moving helpful for wrap text edit
 noremap <unique> k gk
 noremap <unique> j gj
+
+"noremap <unique> jj <C-f>
+"noremap <unique> kk <C-b>
 
 " win-like select all
 nnoremap <unique> <leader>a ggvG$
@@ -119,3 +139,4 @@ nnoremap <unique> <C-l> :nohlsearch<CR><C-l>
 
 " Yanking
 nnoremap Y y$
+
