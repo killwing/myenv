@@ -1,8 +1,14 @@
+" ==================================================================
 " To use it, copy it to
 "     for Unix and OS/2:  ~/.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "
 "  If you don't understand a setting in here, just type :h 'setting'.
+" ==================================================================
+
+" ------------------------------------------------------------------
+" Starting
+" ------------------------------------------------------------------
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -19,25 +25,25 @@ syntax on
 filetype plugin indent on
 
 if has("gui_running")
-    " color scheme define 
-    silent exec "colorscheme night"
-    
+    " color scheme define
+    colorscheme night
+
     " guifont
     if has("win32")
         set guifont=Fixedsys\ Console:h11
     else
         set guifont=MiscFixed\ 11
     endif
-    
+
     " Maximize window when enter vim
     if has("win32")
-        au GUIEnter * simalt ~x 
+        au GUIEnter * simalt ~x
     else
         " TODO: no way right now
     endif
 
 else " if we are in terminal mode
-    silent exec "colorscheme darkdot"
+    colorscheme darkdot
 endif
 
 " When editing a file, always jump to the last known cursor position.
@@ -49,11 +55,15 @@ autocmd BufReadPost *
 \ endif
 
 
+" ------------------------------------------------------------------
+" Options
+" ------------------------------------------------------------------
+
 " Make backspace behave in a sane manner, allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
 
-set autoindent 
-set smartindent 
+set autoindent
+set smartindent
 
 set shiftwidth=4 " set indent to 4 spaces
 set tabstop=4 " set tabstop to 4 spaces
@@ -62,51 +72,51 @@ set expandtab " set expandtab on, the tab will be change to space automaticaly
 set clipboard=unnamed " use clipboard register '*'(unnamed) for all y, d, c, p ops
 
 set guioptions+=b " Present the bottom scrollbar when the longest visible line exceen the window
-set guioptions-=m " disable menu 
+set guioptions-=m " disable menu
 set guioptions-=T " disable toolbar
 
 set langmenu=none " always use English menu
 
-set autoread " auto read same-file change 
+set autoread " auto read same-file change
 
 set showmatch " show matching paren, actually shows
 set matchtime=0 " 0 second to show the matching paren ( much faster )
 set number " Show LineNumber
-set scrolloff=0 " minimal number of screen lines to keep above and below the cursor 
+set scrolloff=0 " minimal number of screen lines to keep above and below the cursor
 set nowrap " I don't like wrap, cause in split window mode, it feel strange
 
-set wildmenu " turn on wild menu, try typing :h and press <Tab> 
+set wildmenu " turn on wild menu, try typing :h and press <Tab>
 set wildignore+=*.a,*.o
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
 set wildignore+=.DS_Store,.git,.hg,.svn
 set wildignore+=*~,*.swp,*.tmp
 
 set ruler " show the cursor position all the time
-set showcmd	" display incomplete commands
+set showcmd " display incomplete commands
 set showmode " display edit mode
-set cmdheight=1 " 1 screen lines to use for the command-line 
-set hid " allow to change buffer without saving 
-set shortmess=atI " shortens messages to avoid 'press a key' prompt 
-set lazyredraw " do not redraw while executing macros (much faster) 
+set cmdheight=1 " 1 screen lines to use for the command-line
+set hid " allow to change buffer without saving
+set shortmess=atI " shortens messages to avoid 'press a key' prompt
+set lazyredraw " do not redraw while executing macros (much faster)
 set display+=lastline " for easy browse last line with wrap text
 
 set showfulltag " show tag with function protype.
 
 set hlsearch " highlight search
 set incsearch " do incremental searching
-set ignorecase " Set search/replace pattern to ignore case 
+set ignorecase " Set search/replace pattern to ignore case
 set smartcase " Set smartcase mode on, If there is upper case character in the search patern, the 'ignorecase' option will be override.
 
 set history=50 " keep 50 lines of command line history
 set updatetime=1000 " default = 4000
-set nobackup " make no backup file and leave it around 
+set nobackup " make no backup file and leave it around
 set noswapfile " no swap file
 
 set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%]
 set laststatus=2
 
 set whichwrap=b,s,<,>,[,]
-set formatoptions+=mB	    
+set formatoptions+=mB
 
 " auto detect file formats
 set fileformats=unix,dos,mac
@@ -116,6 +126,10 @@ set encoding=utf-8
 lan mes zh_CN.utf-8
 set fileencodings=ucs-bom,utf-8,chinese,japanese
 
+
+" ------------------------------------------------------------------
+" Mappings
+" ------------------------------------------------------------------
 
 " wean yourself off the arrow keys etc.!
 noremap <unique> <Up> <nop>
@@ -132,7 +146,7 @@ noremap <unique> k gk
 noremap <unique> j gj
 
 " win-like select all
-nnoremap <unique> <leader>a ggvG$
+nnoremap <unique> <LEADER>a ggvG$
 
 " clear hlsearch and refresh
 nnoremap <unique> <C-l> :nohlsearch<CR><C-l>
@@ -150,8 +164,59 @@ inoremap ' ''<ESC>:let leavechar="'"<CR>i
 " get out
 inoremap <unique> <C-k> <ESC>:exec "normal f" . leavechar<CR>a
 
+
+" ------------------------------------------------------------------
+" Functions
+" ------------------------------------------------------------------
+
 func EatChar(pat)
    let c = nr2char(getchar(0))
    return (c =~ a:pat) ? '' : c
 endf
+
+
+" ------------------------------------------------------------------
+" Plugins
+" ------------------------------------------------------------------
+
+" supertab
+let g:SuperTabDefaultCompletionType = "context"
+
+" nerdtree
+noremap <unique> <F2> :NERDTreeToggle<CR>
+noremap <unique> <LEADER>nf :NERDTreeFind<CR>
+let NERDTreeIgnore = ['\.a[[file]]', '\.o[[file]]', '\.so[[file]]']
+
+" taglist
+noremap <F4> :TlistToggle<CR>
+let Tlist_Show_One_File = 1 " Displaying tags for only one file
+let Tlist_Exist_OnlyWindow = 1 " if you are the last, kill yourself
+let Tlist_Use_Right_Window = 1 " split to the right side of the screen
+let Tlist_Sort_Type = "name" " sort by order or name
+let Tlist_Display_Prototype = 0 " do not show prototypes and not tags in the taglist window.
+let Tlist_Compart_Format = 1 " Remove extra information and blank lines from the taglist window.
+let Tlist_GainFocus_On_ToggleOpen = 1 " Jump to taglist window on open.
+let Tlist_Display_Tag_Scope = 1 " Show tag scope next to the tag name.
+let Tlist_Close_On_Select = 0 " Close the taglist window when a file or tag is selected.
+let Tlist_BackToEditBuffer = 0 " If no close on select, let the user choose back to edit buffer or not
+let Tlist_Enable_Fold_Column = 0 " Don't Show the fold indicator column in the taglist window.
+let Tlist_WinWidth = 40
+let Tlist_Compact_Format = 1 " do not show help
+" let Tlist_Ctags_Cmd = 'ctags --c++-kinds=+p --fields=+iaS --extra=+q --languages=c++'
+" very slow, so I disable this
+" let Tlist_Process_File_Always = 1 " To use the :TlistShowTag and the :TlistShowPrototype commands without the taglist window and the taglist menu, you should set this variable to 1.
+":TlistShowPrototype [filename] [linenumber]
+" let taglist support shader language as c-like language
+let tlist_hlsl_settings = 'c;d:macro;g:enum;s:struct;u:union;t:typedef;v:variable;f:function'
+
+" minibufexpl
+let g:miniBufExplTabWrap = 1 " make tabs show complete (no broken on two lines)
+let g:miniBufExplModSelTarget = 1 " If you use other explorers like TagList you can (As of 6.2.8) set it at 1:
+let g:miniBufExplUseSingleClick = 1 " If you would like to single click on tabs rather than double clicking on them to goto the selected buffer.
+let g:miniBufExplMaxSize = 1 " <max lines: default 0> setting this to 0 will mean the window gets as big as needed to fit all your buffers.
+" comment out this, when we open a single file by we, we don't need minibuf opened. Minibu always open in exDev mode, in EnvironmentUpdate
+" let g:miniBufExplorerMoreThanOne = 0 " Setting this to 0 will cause the MBE window to be loaded even
+"let g:miniBufExplForceSyntaxEnable = 1 " There is a VIM bug that can cause buffers to show up without their highlighting. The following setting will cause MBE to
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplMapWindowNavArrows = 1
 
