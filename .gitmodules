@@ -34,3 +34,6 @@
 [submodule "vim/vim/bundle/l9"]
 	path = vim/vim/bundle/l9
 	url = http://github.com/vim-scripts/L9.git
+[submodule "vim/vim/bundle/quickhl"]
+	path = vim/vim/bundle/quickhl
+	url = http://github.com/t9md/vim-quickhl.git
