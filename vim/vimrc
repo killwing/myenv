@@ -220,4 +220,6 @@ hi MBEVisibleChanged term=bold cterm=bold ctermbg=DarkRed ctermfg=Black gui=bold
 
 " quickhl
 nmap <unique> <LEADER>h <Plug>(quickhl-toggle)
-nmap <unique> <C-h> :nohlsearch<CR><Plug>(quickhl-reset)
+nnoremap <unique> <LEADER>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
+nmap <unique> <C-h> :match<CR>:nohlsearch<CR><Plug>(quickhl-reset)
+
