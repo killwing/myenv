@@ -162,7 +162,10 @@ inoremap ' ''<ESC>:let leavechar="'"<CR>i
 inoremap <unique> <C-k> <ESC>:exec "normal f" . leavechar<CR>a
 
 " easy buffer selection
-noremap <unique> <F3> :buffers<CR>:buffer<Space>
+noremap <unique> <F8> :buffers<CR>:buffer<Space>
+
+" easy tag selection
+noremap <unique> <LEADER>] g<C-]>
 
 " ------------------------------------------------------------------
 " Functions
@@ -182,14 +185,14 @@ endf
 let g:SuperTabDefaultCompletionType = "context"
 
 " nerdtree
-noremap <unique> <F2> :NERDTreeToggle<CR>
+noremap <unique> <F4> :NERDTreeToggle<CR>
 noremap <unique> <LEADER>nf :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.a[[file]]', '\.o[[file]]', '\.so[[file]]']
 let NERDTreeMinimalUI = 1
-"let NERDTreeDirArrows = 1
+let NERDTreeDirArrows = 0
 
 " taglist
-noremap <F4> :TlistToggle<CR>
+noremap <F5> :TlistToggle<CR>
 let Tlist_Show_One_File = 1 " Displaying tags for only one file
 let Tlist_Exit_OnlyWindow = 1 " if you are the last, kill yourself
 let Tlist_Use_Right_Window = 1 " split to the right side of the screen
@@ -213,13 +216,18 @@ let g:miniBufExplMapCTabSwitchBufs = 1 " use <C-tab> and <C-S-tab> to switch buf
 hi MBENormal ctermbg=LightGray ctermfg=DarkGray guibg=LightGray guifg=DarkGray
 hi MBEChanged ctermbg=Red ctermfg=DarkRed guibg=Red guifg=DarkRed
 hi MBEVisibleNormal term=bold cterm=bold ctermbg=Gray ctermfg=Black gui=bold guibg=Gray guifg=Black
+hi MBEVisibleNormalActive term=bold cterm=bold ctermbg=Gray ctermfg=Black gui=bold guibg=Gray guifg=Black
 hi MBEVisibleChanged term=bold cterm=bold ctermbg=DarkRed ctermfg=Black gui=bold guibg=DarkRed guifg=Black
+hi MBEVisibleChangedActive term=bold cterm=bold ctermbg=DarkRed ctermfg=Black gui=bold guibg=DarkRed guifg=Black
 
 " fuzzyfinder
-"noremap <unique> <F5> :FufTaggedFile!<CR>
+noremap <unique> <F6> :FufTaggedFile!<CR>
 
 " quickhl
 nmap <unique> <LEADER>h <Plug>(quickhl-toggle)
 nnoremap <unique> <LEADER>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
 nmap <unique> <C-h> :match<CR>:nohlsearch<CR><Plug>(quickhl-reset)
+
+" sketch
+noremap <unique> <F7> :call ToggleSketch()<CR>
 
