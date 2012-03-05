@@ -126,6 +126,8 @@ set encoding=utf-8
 lan mes zh_CN.utf-8
 set fileencodings=ucs-bom,utf-8,chinese,japanese
 
+set complete=.,w,b,u,i " default is '.,w,b,u,t,i', tags match is not from the word start, disable it
+set completeopt=menu
 
 " ------------------------------------------------------------------
 " Mappings
@@ -230,4 +232,8 @@ nmap <unique> <C-h> :match<CR>:nohlsearch<CR><Plug>(quickhl-reset)
 
 " sketch
 noremap <unique> <F7> :call ToggleSketch()<CR>
+
+" omnicppcomplete
+let OmniCpp_ShowPrototypeInAbbr = 1
+let OmniCpp_DefaultNamespaces = ["std"]
 
