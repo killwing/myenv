@@ -166,8 +166,6 @@ inoremap <unique> <C-k> <ESC>:exec "normal f" . leavechar<CR>a
 " easy buffer selection
 noremap <unique> <F8> :buffers<CR>:buffer<Space>
 
-" easy tag selection
-noremap <unique> <LEADER>] g<C-]>
 
 " ------------------------------------------------------------------
 " Functions
@@ -193,7 +191,7 @@ let NERDTreeIgnore = ['\.a[[file]]', '\.o[[file]]', '\.so[[file]]']
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
 
-" taglist
+" taglist (need ctags util)
 noremap <F5> :TlistToggle<CR>
 let Tlist_Show_One_File = 1 " Displaying tags for only one file
 let Tlist_Exit_OnlyWindow = 1 " if you are the last, kill yourself
@@ -233,7 +231,13 @@ nmap <unique> <C-h> :match<CR>:nohlsearch<CR><Plug>(quickhl-reset)
 " sketch
 noremap <unique> <F7> :call ToggleSketch()<CR>
 
-" omnicppcomplete
+" omnicppcomplete (need ctags DB)
 let OmniCpp_ShowPrototypeInAbbr = 1
 let OmniCpp_DefaultNamespaces = ["std"]
+
+" gtags (need gtags DB)
+noremap <unique> <LEADER>] :Gtags<CR><CR>
+noremap <unique> <LEADER>gt :Gtags 
+noremap <unique> <LEADER>gg :Gtags -g<CR><CR>
+noremap <unique> <LEADER>gr :Gtags -r<CR><CR>
 
