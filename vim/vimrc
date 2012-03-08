@@ -37,7 +37,7 @@ if has("gui_running")
 
     " Maximize window when enter vim
     if has("win32")
-        au GUIEnter * simalt ~x
+        autocmd GUIEnter * simalt ~x
     else
         " TODO: no way right now
     endif
@@ -96,7 +96,7 @@ set showcmd " display incomplete commands
 set showmode " display edit mode
 set cmdheight=1 " 1 screen lines to use for the command-line
 set hid " allow to change buffer without saving
-set shortmess=atI " shortens messages to avoid 'press a key' prompt
+set shortmess=atIO " shortens messages to avoid 'press a key' prompt
 set lazyredraw " do not redraw while executing macros (much faster)
 set display+=lastline " for easy browse last line with wrap text
 
@@ -161,7 +161,7 @@ inoremap < <><ESC>:let leavechar=">"<CR>i
 inoremap " ""<ESC>:let leavechar="\""<CR>i
 inoremap ' ''<ESC>:let leavechar="'"<CR>i
 " get out
-inoremap <unique> <C-k> <ESC>:exec "normal f" . leavechar<CR>a
+inoremap <unique> <C-j> <ESC>:exec "normal f" . leavechar<CR>a
 
 " easy buffer selection
 noremap <unique> <F8> :buffers<CR>:buffer<Space>
@@ -185,14 +185,14 @@ endf
 let g:SuperTabDefaultCompletionType = "context"
 
 " nerdtree
-noremap <unique> <F4> :NERDTreeToggle<CR>
-noremap <unique> <LEADER>nf :NERDTreeFind<CR>
+noremap <unique> <silent> <F4> :NERDTreeToggle<CR>
+noremap <unique> <silent> <LEADER>nf :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.a[[file]]', '\.o[[file]]', '\.so[[file]]']
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
 
 " taglist (need ctags util)
-noremap <F5> :TlistToggle<CR>
+noremap <unique> <silent> <F5> :TlistToggle<CR>
 let Tlist_Show_One_File = 1 " Displaying tags for only one file
 let Tlist_Exit_OnlyWindow = 1 " if you are the last, kill yourself
 let Tlist_Use_Right_Window = 1 " split to the right side of the screen
@@ -221,7 +221,7 @@ hi MBEVisibleChanged term=bold cterm=bold ctermbg=DarkRed ctermfg=Black gui=bold
 hi MBEVisibleChangedActive term=bold cterm=bold ctermbg=DarkRed ctermfg=Black gui=bold guibg=DarkRed guifg=Black
 
 " fuzzyfinder
-noremap <unique> <F6> :FufTaggedFile!<CR>
+noremap <unique> <silent> <F6> :FufTaggedFile!<CR>
 
 " quickhl
 nmap <unique> <LEADER>h <Plug>(quickhl-toggle)
@@ -236,8 +236,13 @@ let OmniCpp_ShowPrototypeInAbbr = 1
 let OmniCpp_DefaultNamespaces = ["std"]
 
 " gtags (need gtags DB)
-noremap <unique> <LEADER>] :Gtags<CR><CR>
+noremap <unique> <silent> <LEADER>] :Gtags<CR><CR>
 noremap <unique> <LEADER>gt :Gtags 
-noremap <unique> <LEADER>gg :Gtags -g<CR><CR>
-noremap <unique> <LEADER>gr :Gtags -r<CR><CR>
+noremap <unique> <silent> <LEADER>gg :Gtags -g<CR><CR>
+noremap <unique> <silent> <LEADER>gr :Gtags -r<CR><CR>
+
+" quick quit
+autocmd BufEnter NERD_tree_1 noremap <unique> <buffer> <silent> <ESC> :q<CR>
+autocmd BufEnter __Tag_List__ noremap <unique> <buffer> <silent> <ESC> :q<CR>
+autocmd BufReadPost quickfix noremap <buffer> <silent> <ESC> :q<CR>
 
