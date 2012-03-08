@@ -117,6 +117,7 @@ set laststatus=2
 
 set whichwrap=b,s,<,>,[,]
 set formatoptions+=mB
+set formatoptions-=cro " disable auto comment
 
 " auto detect file formats
 set fileformats=unix,dos,mac
@@ -128,6 +129,13 @@ set fileencodings=ucs-bom,utf-8,chinese,japanese
 
 set complete=.,w,b,u,i " default is '.,w,b,u,t,i', tags match is not from the word start, disable it
 set completeopt=menu
+
+set nf= " increase/decrease number format to decimal (default is octal)
+set ve=block " In Visual Block Mode, cursor can be positioned where there is no actual character
+set iskeyword+=- " none of these should be word dividers
+set mouse=a " always use mouse in all mode
+
+set diffopt=filler,vertical,foldcolumn:1
 
 " ------------------------------------------------------------------
 " Mappings
@@ -167,13 +175,95 @@ inoremap <unique> <C-j> <ESC>:exec "normal f" . leavechar<CR>a
 noremap <unique> <F8> :buffers<CR>:buffer<Space>
 
 
+" Edit another file in the same directory as the current file
+if has("unix")
+    noremap <unique> <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+else
+    noremap <unique> <Leader>e :e <C-R>=expand("%:p:h") . "\\" <CR>
+endif
+
+" switch window
+noremap <unique> <silent> <LEADER>w <C-w>w
+" switch buffer
+noremap <unique> <silent> <LEADER><TAB> :b#<CR>
+
+" swap with the next word
+noremap <unique> <silent> <LEADER>sw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<cr><c-o>
+
+" Enhance '<' '>' , do not need to reselect the block after shift it.
+vnoremap <unique> < <gv
+vnoremap <unique> > >gv
+
+" turn off diff and set nowrap back (should op on to be quited window)
+noremap <unique> <silent> <LEADER>d :diffoff!<CR>:bd<CR>:set nowrap<CR>
+
+
+" ------------------------------------------------------------------
+" Highlights
+" ------------------------------------------------------------------
+
+hi DiffAdd ctermfg=green guibg=limegreen
+hi DiffDelete ctermfg=red guibg=firebrick
+hi DiffChange ctermfg=yellow guibg=goldenrod
+hi DiffText ctermfg=red guibg=red
+
+hi Folded ctermfg=gray guibg=gray
+"hi FoldColumn ctermfg=gray guibg=gray
+
+" ------------------------------------------------------------------
+" Commands
+" ------------------------------------------------------------------
+
+" clearcase
+command CO exec '!cleartool co -nc -unr ' . fnamemodify(bufname('%'), ':p')
+command CI exec '!cleartool ci -nc ' . fnamemodify(bufname('%'), ':p')
+command UC exec '!cleartool unco -rm ' . fnamemodify(bufname('%'), ':p')
+command SCP exec '!scp ' . fnamemodify(bufname('%'), ':h') . '/.libs/*.so root@desthost:/home'
+
+
 " ------------------------------------------------------------------
 " Functions
 " ------------------------------------------------------------------
 
+" used by alias definition
 func EatChar(pat)
    let c = nr2char(getchar(0))
    return (c =~ a:pat) ? '' : c
+endf
+
+" number every line
+func LineIt()
+    exe "s/^/".line(".")."/"
+endf
+
+" reverse all lines
+func ReverseIt()
+    exe "g/^/m0"
+endf
+
+" toggle fold state between closed and opened.
+noremap <unique> <silent> <space> :call ToggleFold()<CR>
+func ToggleFold()
+	if foldlevel('.') == 0
+		normal! l
+	else
+		if foldclosed('.') < 0
+			. foldclose
+		else
+			. foldopen
+		endif
+	endif
+	" Clear status line
+	echo
+endf
+
+" build from current dir
+func Build()
+    exe "wa"
+    exe "cd %:h"
+    exe "make"
+    silent exe "cw"
+    silent exe "cc"
 endf
 
 
@@ -224,9 +314,9 @@ hi MBEVisibleChangedActive term=bold cterm=bold ctermbg=DarkRed ctermfg=Black gu
 noremap <unique> <silent> <F6> :FufTaggedFile!<CR>
 
 " quickhl
-nmap <unique> <LEADER>h <Plug>(quickhl-toggle)
-nnoremap <unique> <LEADER>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
-nmap <unique> <C-h> :match<CR>:nohlsearch<CR><Plug>(quickhl-reset)
+nmap <unique> <silent> <LEADER>h <Plug>(quickhl-toggle)
+nnoremap <unique> <silent> <LEADER>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
+nmap <unique> <silent> <C-h> :match<CR>:nohlsearch<CR><Plug>(quickhl-reset)
 
 " sketch
 noremap <unique> <F7> :call ToggleSketch()<CR>
@@ -237,12 +327,12 @@ let OmniCpp_DefaultNamespaces = ["std"]
 
 " gtags (need gtags DB)
 noremap <unique> <silent> <LEADER>] :Gtags<CR><CR>
-noremap <unique> <LEADER>gt :Gtags 
+noremap <unique> <LEADER>gt :Gtags
 noremap <unique> <silent> <LEADER>gg :Gtags -g<CR><CR>
 noremap <unique> <silent> <LEADER>gr :Gtags -r<CR><CR>
 
 " quick quit
-autocmd BufEnter NERD_tree_1 noremap <unique> <buffer> <silent> <ESC> :q<CR>
-autocmd BufEnter __Tag_List__ noremap <unique> <buffer> <silent> <ESC> :q<CR>
+autocmd BufNewFile NERD_tree_1 noremap <unique> <buffer> <silent> <ESC> :q<CR>
+autocmd BufNewFile __Tag_List__ noremap <unique> <buffer> <silent> <ESC> :q<CR>
 autocmd BufReadPost quickfix noremap <buffer> <silent> <ESC> :q<CR>
 
