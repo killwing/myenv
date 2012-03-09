@@ -1,4 +1,5 @@
 #!/bin/bash
+export GTAGSFORCECPP=""
 gtags
 ctags -R --languages=c++ --c++-kinds=+p --fields=+aiS --extra=+q
 
