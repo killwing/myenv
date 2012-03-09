@@ -277,7 +277,7 @@ let g:SuperTabDefaultCompletionType = "context"
 " nerdtree
 noremap <unique> <silent> <F4> :NERDTreeToggle<CR>
 noremap <unique> <silent> <LEADER>nf :NERDTreeFind<CR>
-let NERDTreeIgnore = ['\.a[[file]]', '\.o[[file]]', '\.so[[file]]']
+let NERDTreeIgnore = ['\.a[[file]]', '\.o[[file]]', '\.so[[file]]', '\.lo[[file]]', '\.la[[file]]']
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
 
