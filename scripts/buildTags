@@ -1,0 +1,4 @@
+#!/bin/bash
+gtags
+ctags -R --languages=c++ --c++-kinds=+p --fields=+aiS --extra=+q
+
