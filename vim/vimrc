@@ -331,8 +331,8 @@ noremap <unique> <LEADER>gt :Gtags
 noremap <unique> <silent> <LEADER>gg :Gtags -g<CR><CR>
 noremap <unique> <silent> <LEADER>gr :Gtags -r<CR><CR>
 
-" quick quit
-autocmd BufNewFile NERD_tree_1 noremap <unique> <buffer> <silent> <ESC> :q<CR>
-autocmd BufNewFile __Tag_List__ noremap <unique> <buffer> <silent> <ESC> :q<CR>
-autocmd BufReadPost quickfix noremap <buffer> <silent> <ESC> :q<CR>
+" back to main window and quit
+autocmd BufNewFile NERD_tree_1 map <unique> <buffer> <silent> <ESC> <C-w>p<F4>
+autocmd BufNewFile __Tag_List__ map <unique> <buffer> <silent> <ESC> <C-w>p<F5>
+autocmd BufReadPost quickfix map <buffer> <silent> <ESC> <C-w>p:ccl<CR>
 
