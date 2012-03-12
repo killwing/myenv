@@ -214,17 +214,6 @@ hi Folded ctermfg=gray guibg=gray
 "hi FoldColumn ctermfg=gray guibg=gray
 
 " ------------------------------------------------------------------
-" Commands
-" ------------------------------------------------------------------
-
-" clearcase
-command CO exec '!cleartool co -nc -unr ' . fnamemodify(bufname('%'), ':p')
-command CI exec '!cleartool ci -nc ' . fnamemodify(bufname('%'), ':p')
-command UC exec '!cleartool unco -rm ' . fnamemodify(bufname('%'), ':p')
-command SCP exec '!scp ' . fnamemodify(bufname('%'), ':h') . '/.libs/*.so root@desthost:/home'
-
-
-" ------------------------------------------------------------------
 " Functions
 " ------------------------------------------------------------------
 
@@ -265,6 +254,12 @@ func SyntaxItem()
   echo synIDattr(synID(line("."), col("."), 1), "name")
 endf
 
+" clearcase diff with current 
+func CtDiff(ver)
+    let file = system("cleartool ls -short " . fnamemodify(bufname('%'), ':p') . ' | sed s/CHECKEDOUT/' . a:ver . '/')
+    exe "diffsplit " . file
+endf
+
 " build from current dir
 func Build()
     exe "wa"
@@ -273,6 +268,19 @@ func Build()
     silent exe "cw"
     silent exe "cc"
 endf
+
+
+" ------------------------------------------------------------------
+" Commands
+" ------------------------------------------------------------------
+
+" clearcase
+command CO exe '!cleartool co -nc -unr ' . fnamemodify(bufname('%'), ':p')
+command CI exe '!cleartool ci -nc ' . fnamemodify(bufname('%'), ':p')
+command UC exe '!cleartool unco -rm ' . fnamemodify(bufname('%'), ':p')
+command SCP exe '!scp ' . fnamemodify(bufname('%'), ':h') . '/.libs/*.so root@desthost:/home'
+command DIFF :call CtDiff('LATEST')
+
 
 
 " ------------------------------------------------------------------
@@ -347,4 +355,5 @@ noremap <unique> <silent> <LEADER>gr :Gtags -r<CR><CR>
 autocmd BufNewFile NERD_tree_1 map <unique> <buffer> <silent> <ESC> <C-w>p<F4>
 autocmd BufNewFile __Tag_List__ map <unique> <buffer> <silent> <ESC> <C-w>p<F5>
 autocmd BufReadPost quickfix map <buffer> <silent> <ESC> <C-w>p:ccl<CR>
+
 
