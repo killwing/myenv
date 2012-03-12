@@ -198,7 +198,7 @@ vnoremap <unique> > >gv
 noremap <unique> <silent> <LEADER>d :diffoff!<CR>:bd<CR>:set nowrap<CR>
 
 " easy search tags
-noremap <unique> <silent> <LEADER>] g<C-]><CR>
+noremap <unique> <silent> <LEADER>] g<C-]>
 
 
 " ------------------------------------------------------------------
@@ -222,6 +222,13 @@ command CO exec '!cleartool co -nc -unr ' . fnamemodify(bufname('%'), ':p')
 command CI exec '!cleartool ci -nc ' . fnamemodify(bufname('%'), ':p')
 command UC exec '!cleartool unco -rm ' . fnamemodify(bufname('%'), ':p')
 command SCP exec '!scp ' . fnamemodify(bufname('%'), ':h') . '/.libs/*.so root@desthost:/home'
+command DIFF exec 'diffsplit ' . fnamemodify(bufname('%'), ':p')
+
+
+func GetLatestFile()
+    let file = system("ct ls -short " . fnamemodify(bufname('%'), ':p'))
+    echo file
+endf
 
 
 " ------------------------------------------------------------------
@@ -306,7 +313,8 @@ let Tlist_WinWidth = 40
 "hi MyTagListComment ctermfg=DarkGreen guifg=DarkGreen
 "hi MyTagListFileName term=bold cterm=bold ctermfg=Black ctermbg=LightBlue gui=bold guifg=Black guibg=LightBlue
 
-" minibufexpl -- removed because of performance issue
+" minibufexpl -- removed because of performance issue 
+" (fugitive plugin also have performance issue when ssh)
 "let g:miniBufExplTabWrap = 1 " make tabs show complete (no broken on two lines)
 "let g:miniBufExplModSelTarget = 1 " If you use other explorers like TagList you can (As of 6.2.8) set it at 1:
 "let g:miniBufExplUseSingleClick = 1 " If you would like to single click on tabs rather than double clicking on them to goto the selected buffer.
@@ -338,7 +346,7 @@ let OmniCpp_ShowPrototypeInAbbr = 1
 let OmniCpp_DefaultNamespaces = ["std"]
 
 " gtags (need gtags DB)
-noremap <unique> <LEADER>gt :Gtags
+noremap <unique> <LEADER>gt :Gtags 
 noremap <unique> <silent> <LEADER>gd :Gtags<CR><CR>
 noremap <unique> <silent> <LEADER>gg :Gtags -g<CR><CR>
 noremap <unique> <silent> <LEADER>gr :Gtags -r<CR><CR>
