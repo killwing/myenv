@@ -197,6 +197,9 @@ vnoremap <unique> > >gv
 " turn off diff and set nowrap back (should op on to be quited window)
 noremap <unique> <silent> <LEADER>d :diffoff!<CR>:bd<CR>:set nowrap<CR>
 
+" easy search tags
+noremap <unique> <silent> <LEADER>] g<C-]><CR>
+
 
 " ------------------------------------------------------------------
 " Highlights
@@ -257,6 +260,11 @@ func ToggleFold()
 	echo
 endf
 
+" show current highlight group
+func SyntaxItem()
+  echo synIDattr(synID(line("."), col("."), 1), "name")
+endf
+
 " build from current dir
 func Build()
     exe "wa"
@@ -280,6 +288,7 @@ noremap <unique> <silent> <LEADER>nf :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.a[[file]]', '\.o[[file]]', '\.so[[file]]', '\.lo[[file]]', '\.la[[file]]']
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
+hi def link NERDTreeRO Normal
 
 " taglist (need ctags util)
 noremap <unique> <silent> <F5> :TlistToggle<CR>
@@ -303,6 +312,9 @@ let g:miniBufExplModSelTarget = 1 " If you use other explorers like TagList you 
 let g:miniBufExplUseSingleClick = 1 " If you would like to single click on tabs rather than double clicking on them to goto the selected buffer.
 let g:miniBufExplMaxSize = 1 " <max lines: default 0> setting this to 0 will mean the window gets as big as needed to fit all your buffers.
 let g:miniBufExplMapCTabSwitchBufs = 1 " use <C-tab> and <C-S-tab> to switch buffers
+let g:miniBufExplCheckDupeBufs = 0 " do not check dupe buffers, too slow!
+let g:miniBufExplShowBufNumbers = 0
+let g:miniBufExplForceSyntaxEnable = 1
 hi MBENormal ctermbg=LightGray ctermfg=DarkGray guibg=LightGray guifg=DarkGray
 hi MBEChanged ctermbg=Red ctermfg=DarkRed guibg=Red guifg=DarkRed
 hi MBEVisibleNormal term=bold cterm=bold ctermbg=Gray ctermfg=Black gui=bold guibg=Gray guifg=Black
@@ -326,8 +338,8 @@ let OmniCpp_ShowPrototypeInAbbr = 1
 let OmniCpp_DefaultNamespaces = ["std"]
 
 " gtags (need gtags DB)
-noremap <unique> <silent> <LEADER>] :Gtags<CR><CR>
 noremap <unique> <LEADER>gt :Gtags
+noremap <unique> <silent> <LEADER>gd :Gtags<CR><CR>
 noremap <unique> <silent> <LEADER>gg :Gtags -g<CR><CR>
 noremap <unique> <silent> <LEADER>gr :Gtags -r<CR><CR>
 
