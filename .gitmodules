@@ -10,9 +10,6 @@
 [submodule "vim/vim/bundle/supertab"]
 	path = vim/vim/bundle/supertab
 	url = http://github.com/ervandew/supertab.git
-[submodule "vim/vim/bundle/minibufexpl"]
-	path = vim/vim/bundle/minibufexpl
-	url = http://github.com/fholgado/minibufexpl.vim.git
 [submodule "vim/vim/bundle/nerdtree"]
 	path = vim/vim/bundle/nerdtree
 	url = http://github.com/scrooloose/nerdtree.git
@@ -30,7 +27,7 @@
 	url = http://github.com/vim-scripts/TeTrIs.vim.git
 [submodule "vim/vim/bundle/fuzzyfinder"]
 	path = vim/vim/bundle/fuzzyfinder
-	url = http://github.com/vim-scripts/FuzzyFinder.git
+	url = https://github.com/vim-scripts/FuzzyFinder.git
 [submodule "vim/vim/bundle/l9"]
 	path = vim/vim/bundle/l9
 	url = http://github.com/vim-scripts/L9.git
