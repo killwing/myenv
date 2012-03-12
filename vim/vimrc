@@ -137,81 +137,6 @@ set mouse=a " always use mouse in all mode
 
 set diffopt=filler,vertical,foldcolumn:1
 
-" ------------------------------------------------------------------
-" Mappings
-" ------------------------------------------------------------------
-
-" wean yourself off the arrow keys etc.!
-noremap <unique> <Up> <nop>
-noremap <unique> <Down> <nop>
-noremap <unique> <Left> <nop>
-noremap <unique> <Right> <nop>
-noremap <unique> <Home> <nop>
-noremap <unique> <End> <nop>
-noremap <unique> <PageUp> <nop>
-noremap <unique> <PageDown> <nop>
-
-" moving helpful for wrap text edit
-noremap <unique> k gk
-noremap <unique> j gj
-
-" win-like select all
-nnoremap <unique> <LEADER>a ggvG$
-
-" Yanking
-nnoremap Y y$
-
-" auto close, could be overruled
-inoremap ( ()<ESC>:let leavechar=")"<CR>i
-inoremap [ []<ESC>:let leavechar="]"<CR>i
-inoremap { {}<ESC>:let leavechar="}"<CR>i
-inoremap < <><ESC>:let leavechar=">"<CR>i
-inoremap " ""<ESC>:let leavechar="\""<CR>i
-inoremap ' ''<ESC>:let leavechar="'"<CR>i
-" get out
-inoremap <unique> <C-j> <ESC>:exec "normal f" . leavechar<CR>a
-
-" easy buffer selection
-noremap <unique> <F8> :buffers<CR>:buffer<Space>
-
-
-" Edit another file in the same directory as the current file
-if has("unix")
-    noremap <unique> <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-else
-    noremap <unique> <Leader>e :e <C-R>=expand("%:p:h") . "\\" <CR>
-endif
-
-" switch window
-noremap <unique> <silent> <LEADER>w <C-w>w
-" switch buffer
-noremap <unique> <silent> <LEADER><TAB> :b#<CR>
-
-" swap with the next word
-noremap <unique> <silent> <LEADER>sw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<cr><c-o>
-
-" Enhance '<' '>' , do not need to reselect the block after shift it.
-vnoremap <unique> < <gv
-vnoremap <unique> > >gv
-
-" turn off diff and set nowrap back (should op on to be quited window)
-noremap <unique> <silent> <LEADER>d :diffoff!<CR>:bd<CR>:set nowrap<CR>
-
-" easy search tags
-noremap <unique> <silent> <LEADER>] g<C-]>
-
-
-" ------------------------------------------------------------------
-" Highlights
-" ------------------------------------------------------------------
-
-hi DiffAdd ctermfg=green guibg=limegreen
-hi DiffDelete ctermfg=red guibg=firebrick
-hi DiffChange ctermfg=yellow guibg=goldenrod
-hi DiffText ctermfg=red guibg=red
-
-hi Folded ctermfg=gray guibg=gray
-"hi FoldColumn ctermfg=gray guibg=gray
 
 " ------------------------------------------------------------------
 " Functions
@@ -234,10 +159,9 @@ func ReverseIt()
 endf
 
 " toggle fold state between closed and opened.
-noremap <unique> <silent> <space> :call ToggleFold()<CR>
 func ToggleFold()
 	if foldlevel('.') == 0
-		normal! l
+		"normal! l
 	else
 		if foldclosed('.') < 0
 			. foldclose
@@ -254,10 +178,20 @@ func SyntaxItem()
   echo synIDattr(synID(line("."), col("."), 1), "name")
 endf
 
-" clearcase diff with current 
-func CtDiff(ver)
-    let file = system("cleartool ls -short " . fnamemodify(bufname('%'), ':p') . ' | sed s/CHECKEDOUT/' . a:ver . '/')
-    exe "diffsplit " . file
+" clearcase diff with current
+func CtDiff()
+    let f = system("cleartool ls -short " . fnamemodify(bufname('%'), ':p'))
+    "echo 'Current version (right): ' . f
+    echo 'Current version (right): '
+    call inputsave()
+    let v = input("Enter a version (default:LATEST) to diff (left): ")
+    call inputrestore()
+    let leftv = "LATEST"
+    if !empty(v)
+        let leftv = v
+    endif
+    let f = substitute(f, "\/\w+$", leftv, "")
+    exe "diffsplit " . f
 endf
 
 " build from current dir
@@ -269,6 +203,105 @@ func Build()
     silent exe "cc"
 endf
 
+" toggle window size
+func ToggleWinSize(vert)
+    if a:vert
+        if winwidth(0) < 50
+            exe "vertical res" . winwidth(0)*2
+        else
+            exe "vertical res" . winwidth(0)/2
+        endif
+    else
+        if winheight(0) < 50
+            exe "res" . winheight(0)*2
+        else
+            exe "res" . winheight(0)/2
+        endif
+    endif
+endf
+
+
+" ------------------------------------------------------------------
+" Mappings
+" ------------------------------------------------------------------
+
+" wean yourself off the arrow keys etc.!
+noremap <unique> <Up> <nop>
+noremap <unique> <Down> <nop>
+noremap <unique> <Left> <nop>
+noremap <unique> <Right> <nop>
+noremap <unique> <Home> <nop>
+noremap <unique> <End> <nop>
+noremap <unique> <PageUp> <nop>
+noremap <unique> <PageDown> <nop>
+
+" moving helpful for wrap text edit
+noremap <unique> j gj
+noremap <unique> k gk
+" move quickly
+noremap <unique> <SPACE> 20j
+noremap <unique> <S-SPACE> 20k
+
+" win-like select all
+nnoremap <unique> <LEADER>a ggvG$
+
+" Yanking
+nnoremap Y y$
+
+" auto close, could be overruled
+inoremap ( ()<ESC>:let leavechar=")"<CR>i
+inoremap [ []<ESC>:let leavechar="]"<CR>i
+inoremap { {}<ESC>:let leavechar="}"<CR>i
+inoremap < <><ESC>:let leavechar=">"<CR>i
+inoremap " ""<ESC>:let leavechar="\""<CR>i
+inoremap ' ''<ESC>:let leavechar="'"<CR>i
+" get out
+inoremap <unique> <C-j> <ESC>:exec "normal f" . leavechar<CR>a
+
+" easy buffer selection (use fuzzyfinder instead)
+"noremap <unique> <F8> :buffers<CR>:buffer<Space>
+
+
+" Edit another file in the same directory as the current file
+if has("unix")
+    noremap <unique> <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+else
+    noremap <unique> <Leader>e :e <C-R>=expand("%:p:h") . "\\" <CR>
+endif
+
+" switch window
+noremap <unique> <silent> <LEADER>w <C-w>p
+" switch buffer
+noremap <unique> <silent> <LEADER><TAB> :b#<CR>
+noremap <unique> <silent> <C-j> :bn<CR>
+noremap <unique> <silent> <C-k> :bp<CR>
+
+" swap with the next word
+noremap <unique> <silent> <LEADER>sw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<cr><c-o>
+
+" Enhance '<' '>' , do not need to reselect the block after shift it.
+vnoremap <unique> < <gv
+vnoremap <unique> > >gv
+
+" turn off diff and set nowrap back (should op on to be quited window)
+noremap <unique> <silent> <LEADER>d :diffoff!<CR>:bd<CR>:set nowrap<CR>
+
+" easy search tags
+noremap <unique> <silent> <LEADER>] g<C-]>
+
+noremap <unique> <silent> <LEADER>f :call ToggleFold()<CR>
+
+" ------------------------------------------------------------------
+" Highlights
+" ------------------------------------------------------------------
+
+hi DiffAdd ctermfg=green guibg=limegreen
+hi DiffDelete ctermfg=red guibg=firebrick
+hi DiffChange ctermfg=yellow guibg=goldenrod
+hi DiffText ctermfg=red guibg=red
+
+hi Folded ctermfg=gray guibg=gray
+"hi FoldColumn ctermfg=gray guibg=gray
 
 " ------------------------------------------------------------------
 " Commands
@@ -279,8 +312,7 @@ command CO exe '!cleartool co -nc -unr ' . fnamemodify(bufname('%'), ':p')
 command CI exe '!cleartool ci -nc ' . fnamemodify(bufname('%'), ':p')
 command UC exe '!cleartool unco -rm ' . fnamemodify(bufname('%'), ':p')
 command SCP exe '!scp ' . fnamemodify(bufname('%'), ':h') . '/.libs/*.so root@desthost:/home'
-command DIFF :call CtDiff('LATEST')
-
+command DIFF call CtDiff()
 
 
 " ------------------------------------------------------------------
@@ -314,7 +346,7 @@ let Tlist_WinWidth = 40
 "hi MyTagListComment ctermfg=DarkGreen guifg=DarkGreen
 "hi MyTagListFileName term=bold cterm=bold ctermfg=Black ctermbg=LightBlue gui=bold guifg=Black guibg=LightBlue
 
-" minibufexpl -- removed because of performance issue 
+" minibufexpl -- removed because of performance issue
 " (fugitive plugin also have performance issue when ssh)
 "let g:miniBufExplTabWrap = 1 " make tabs show complete (no broken on two lines)
 "let g:miniBufExplModSelTarget = 1 " If you use other explorers like TagList you can (As of 6.2.8) set it at 1:
@@ -332,7 +364,11 @@ let Tlist_WinWidth = 40
 "hi MBEVisibleChangedActive term=bold cterm=bold ctermbg=DarkRed ctermfg=Black gui=bold guibg=DarkRed guifg=Black
 
 " fuzzyfinder
-noremap <unique> <silent> <F6> :FufTaggedFile!<CR>
+let g:fuf_coveragefile_globPatterns = ['**/*.h', '**/*.c', '**/*.hpp', '**/*.cpp', '**/*.cxx']
+" hang with big tags file
+"noremap <unique> <silent> <F6> :FufTaggedFile!<CR>
+noremap <unique> <silent> <F6> :FufCoverageFile!<CR>
+noremap <unique> <silent> <F8> :FufBuffer!<CR>
 
 " quickhl
 nmap <unique> <silent> <LEADER>h <Plug>(quickhl-toggle)
@@ -352,9 +388,17 @@ noremap <unique> <silent> <LEADER>gd :Gtags<CR><CR>
 noremap <unique> <silent> <LEADER>gg :Gtags -g<CR><CR>
 noremap <unique> <silent> <LEADER>gr :Gtags -r<CR><CR>
 
-" back to main window and quit
-autocmd BufNewFile NERD_tree_1 map <unique> <buffer> <silent> <ESC> <C-w>p<F4>
-autocmd BufNewFile __Tag_List__ map <unique> <buffer> <silent> <ESC> <C-w>p<F5>
-autocmd BufReadPost quickfix map <buffer> <silent> <ESC> <C-w>p:ccl<CR>
+" plugin windows mapping
+autocmd BufNewFile NERD_tree_1
+\ map <unique> <buffer> <silent> <ESC> <C-w>p<F4> |
+\ noremap <unique> <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
+
+autocmd BufNewFile __Tag_List__
+\ map <unique> <buffer> <silent> <ESC> <C-w>p<F5> |
+\ noremap <unique> <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
+
+autocmd BufReadPost quickfix
+\ map <buffer> <silent> <ESC> <C-w>p:ccl<CR> |
+\ noremap <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(0)<CR>
 
 
