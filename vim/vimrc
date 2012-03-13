@@ -123,6 +123,7 @@ set formatoptions-=cro " disable auto comment
 set fileformats=unix,dos,mac
 
 set encoding=utf-8
+language mes en
 " auto detect file encodings
 set fileencodings=ucs-bom,utf-8,chinese,japanese
 
@@ -380,7 +381,7 @@ let OmniCpp_ShowPrototypeInAbbr = 1
 let OmniCpp_DefaultNamespaces = ["std"]
 
 " gtags (need gtags DB)
-noremap <unique> <LEADER>gt :Gtags 
+noremap <unique> <LEADER>gt :Gtags<SPACE>
 noremap <unique> <silent> <LEADER>gd :Gtags<CR><CR>
 noremap <unique> <silent> <LEADER>gg :Gtags -g<CR><CR>
 noremap <unique> <silent> <LEADER>gr :Gtags -r<CR><CR>
@@ -389,26 +390,26 @@ noremap <unique> <silent> <LEADER>gr :Gtags -r<CR><CR>
 if has("gui_running")
     autocmd BufNewFile NERD_tree_1
     \ map <unique> <buffer> <silent> <ESC> <C-w>p<F4>|
-    \ noremap <unique> <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
+    \ noremap <buffer> <silent> <SPACE> :call ToggleWinSize(1)<CR>0
 
     autocmd BufNewFile __Tag_List__
     \ map <unique> <buffer> <silent> <ESC> <C-w>p<F5>|
-    \ noremap <unique> <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
+    \ noremap <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
 
     autocmd BufReadPost quickfix
     \ map <buffer> <silent> <ESC> <C-w>p:ccl<CR>|
-    \ noremap <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(0)<CR>
+    \ noremap <buffer> <silent> <SPACE> :call ToggleWinSize(0)<CR>
 else
     autocmd BufNewFile NERD_tree_1
     \ map <unique> <buffer> <silent> <LEADER><ESC> <C-w>p<F4>|
-    \ noremap <unique> <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
+    \ noremap <buffer> <silent> <SPACE> :call ToggleWinSize(1)<CR>0
 
     autocmd BufNewFile __Tag_List__
     \ map <unique> <buffer> <silent> <LEADER><ESC> <C-w>p<F5>|
-    \ noremap <unique> <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
+    \ noremap <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
 
     autocmd BufReadPost quickfix
     \ map <buffer> <silent> <LEADER><ESC> <C-w>p:ccl<CR>|
-    \ noremap <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(0)<CR>
+    \ noremap <buffer> <silent> <SPACE> :call ToggleWinSize(0)<CR>
 endif
 
