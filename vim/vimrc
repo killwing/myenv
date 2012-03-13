@@ -124,7 +124,6 @@ set fileformats=unix,dos,mac
 
 set encoding=utf-8
 " auto detect file encodings
-lan mes zh_CN.utf-8
 set fileencodings=ucs-bom,utf-8,chinese,japanese
 
 set complete=.,w,b,u,i " default is '.,w,b,u,t,i', tags match is not from the word start, disable it
@@ -132,8 +131,7 @@ set completeopt=menu
 
 set nf= " increase/decrease number format to decimal (default is octal)
 set ve=block " In Visual Block Mode, cursor can be positioned where there is no actual character
-set iskeyword+=- " none of these should be word dividers
-set mouse=a " always use mouse in all mode
+set mouse=a " use mouse
 
 set diffopt=filler,vertical,foldcolumn:1
 
@@ -239,7 +237,7 @@ noremap <unique> j gj
 noremap <unique> k gk
 " move quickly
 noremap <unique> <SPACE> 20j
-noremap <unique> <S-SPACE> 20k
+noremap <unique> <BS> 20k
 
 " win-like select all
 nnoremap <unique> <LEADER>a ggvG$
@@ -387,17 +385,30 @@ noremap <unique> <silent> <LEADER>gd :Gtags<CR><CR>
 noremap <unique> <silent> <LEADER>gg :Gtags -g<CR><CR>
 noremap <unique> <silent> <LEADER>gr :Gtags -r<CR><CR>
 
-" plugin windows mapping
-autocmd BufNewFile NERD_tree_1
-\ map <unique> <buffer> <silent> <ESC> <C-w>p<F4> |
-\ noremap <unique> <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
+" plugin windows mapping, see help xterm-cursor-keys etc.
+if has("gui_running")
+    autocmd BufNewFile NERD_tree_1
+    \ map <unique> <buffer> <silent> <ESC> <C-w>p<F4>|
+    \ noremap <unique> <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
 
-autocmd BufNewFile __Tag_List__
-\ map <unique> <buffer> <silent> <ESC> <C-w>p<F5> |
-\ noremap <unique> <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
+    autocmd BufNewFile __Tag_List__
+    \ map <unique> <buffer> <silent> <ESC> <C-w>p<F5>|
+    \ noremap <unique> <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
 
-autocmd BufReadPost quickfix
-\ map <buffer> <silent> <ESC> <C-w>p:ccl<CR> |
-\ noremap <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(0)<CR>
+    autocmd BufReadPost quickfix
+    \ map <buffer> <silent> <ESC> <C-w>p:ccl<CR>|
+    \ noremap <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(0)<CR>
+else
+    autocmd BufNewFile NERD_tree_1
+    \ map <unique> <buffer> <silent> <LEADER><ESC> <C-w>p<F4>|
+    \ noremap <unique> <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
 
+    autocmd BufNewFile __Tag_List__
+    \ map <unique> <buffer> <silent> <LEADER><ESC> <C-w>p<F5>|
+    \ noremap <unique> <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
+
+    autocmd BufReadPost quickfix
+    \ map <buffer> <silent> <LEADER><ESC> <C-w>p:ccl<CR>|
+    \ noremap <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(0)<CR>
+endif
 
