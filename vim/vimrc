@@ -181,8 +181,7 @@ endf
 " clearcase diff with current
 func CtDiff()
     let f = system("cleartool ls -short " . fnamemodify(bufname('%'), ':p'))
-    "echo 'Current version (right): ' . f
-    echo 'Current version (right): '
+    echo 'Current version (right): ' . f
     call inputsave()
     let v = input("Enter a version (default:LATEST) to diff (left): ")
     call inputrestore()
@@ -190,7 +189,7 @@ func CtDiff()
     if !empty(v)
         let leftv = v
     endif
-    let f = substitute(f, "\/\w+$", leftv, "")
+    let f = substitute(f, '/\w\+\n$', "/" . leftv, "")
     exe "diffsplit " . f
 endf
 
