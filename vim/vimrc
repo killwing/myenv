@@ -123,7 +123,6 @@ set formatoptions-=cro " disable auto comment
 set fileformats=unix,dos,mac
 
 set encoding=utf-8
-language mes en
 " auto detect file encodings
 set fileencodings=ucs-bom,utf-8,chinese,japanese
 
