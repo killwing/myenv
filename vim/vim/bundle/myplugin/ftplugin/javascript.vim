@@ -19,6 +19,6 @@ iabbr <buffer> while {<ESC>ddki<SPACE><LEFT>while<SPACE>(<C-R>=EatChar('\s')<CR>
 iabbr <buffer> do do {<ESC>dda<SPACE>while<SPACE>;<LEFT>(<C-R>=EatChar('\s')<CR>
 iabbr <buffer> for {<ESC>ddki<SPACE><LEFT>for<SPACE>(<C-R>=EatChar('\s')<CR>
 iabbr <buffer> fori {<ESC>ddki<SPACE><LEFT>for<SPACE>(var i = 0; i != ; ++i<C-o>F;<C-R>=EatChar('\s')<CR>
-iabbr <buffer> func {<ESC>dda;<ESC>k$i<SPACE><LEFT>function<SPACE>(<C-R>=EatChar('\s')<CR>
+iabbr <buffer> func {<ESC>dda;<ESC>k$i<SPACE><LEFT>function(<C-R>=EatChar('\s')<CR>
 
 
