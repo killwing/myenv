@@ -13,7 +13,7 @@ inoremap <buffer> { {<CR>}<ESC>O
 
 iabbr <buffer> try try {<ESC>dda<SPACE>catch (const Exception& e<RIGHT><SPACE>{<ESC>ddkO<C-R>=EatChar('\s')<CR>
 iabbr <buffer> switch {case 0:<CR>break;<CR>default:<CR>break;<ESC>[{i<SPACE><LEFT>switch<SPACE>(<C-R>=EatChar('\s')<CR>
-iabbr <buffer> if {<ESC>ddki<SPACE><LEFT>if<SPACE>(<C-R>=EatChar('\s')<CR>
+iabbr <buffer> if {<ESC>ddk$i<SPACE><LEFT>if<SPACE>(<C-R>=EatChar('\s')<CR>
 iabbr <buffer> ifel {<ESC>dda<SPACE>else<SPACE>{<ESC>ddkki<SPACE><LEFT>if<SPACE>(<C-R>=EatChar('\s')<CR>
 iabbr <buffer> while {<ESC>ddki<SPACE><LEFT>while<SPACE>(<C-R>=EatChar('\s')<CR>
 iabbr <buffer> do do {<ESC>dda<SPACE>while<SPACE>;<LEFT>(<C-R>=EatChar('\s')<CR>
