@@ -209,7 +209,7 @@ func ToggleWinSize(vert)
             exe "vertical res" . winwidth(0)/2
         endif
     else
-        if winheight(0) < 50
+        if winheight(0) < 40
             exe "res" . winheight(0)*2
         else
             exe "res" . winheight(0)/2
