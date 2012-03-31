@@ -59,16 +59,12 @@ export CPLUS_INCLUDE_PATH=$C_INCLUDE_PATH:$HOME/sources/boost_1_43_0/
 export NODE_PATH=/usr/local:/usr/local/lib/node_modules
 
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep -Is --color=auto'
+alias fgrep='fgrep -Is --color=auto'
+alias egrep='egrep -Is --color=auto'
 
 alias ll='ls -l'
 alias l='ls -alF'
