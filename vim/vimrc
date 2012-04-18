@@ -317,7 +317,11 @@ command DIFF call CtDiff()
 " ------------------------------------------------------------------
 
 " supertab
-let g:SuperTabDefaultCompletionType = "context"
+let tagfiles = tagfiles()
+if !empty(tagfiles)
+    " default is <c-p>
+    let g:SuperTabDefaultCompletionType = "context"
+endif
 
 " nerdtree
 noremap <unique> <silent> <F4> :NERDTreeToggle<CR>
