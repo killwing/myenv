@@ -10,3 +10,5 @@
     external = extDiff
 [core]
     gitproxy = gitproxy
+[color]
+	ui = true
