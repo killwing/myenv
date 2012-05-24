@@ -24,7 +24,7 @@
 	url = http://github.com/vim-scripts/TeTrIs.vim.git
 [submodule "vim/vim/bundle/fuzzyfinder"]
 	path = vim/vim/bundle/fuzzyfinder
-	url = https://github.com/vim-scripts/FuzzyFinder.git
+	url = http://github.com/vim-scripts/FuzzyFinder.git
 [submodule "vim/vim/bundle/l9"]
 	path = vim/vim/bundle/l9
 	url = http://github.com/vim-scripts/L9.git
