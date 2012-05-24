@@ -288,6 +288,8 @@ noremap <unique> <silent> <LEADER>] g<C-]>
 
 noremap <unique> <silent> <LEADER>f :call ToggleFold()<CR>
 
+noremap <unique> <F9> :call Build()<CR>
+
 " ------------------------------------------------------------------
 " Highlights
 " ------------------------------------------------------------------
