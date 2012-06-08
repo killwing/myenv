@@ -55,7 +55,7 @@ shopt -s checkwinsize
 # PATHs
 export PATH=$PATH:$HOME/bin/:$HOME/github/myenv/scripts/
 export CPLUS_INCLUDE_PATH=$C_INCLUDE_PATH:$HOME/sources/boost_1_43_0/
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/root/bttest/bak/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 export NODE_PATH=/usr/local:/usr/local/lib/node_modules
 
 
@@ -66,10 +66,10 @@ alias grep='grep -Is --color=auto'
 alias fgrep='fgrep -Is --color=auto'
 alias egrep='egrep -Is --color=auto'
 
-alias ll='ls -l'
-alias l='ls -alF'
+alias l='ls -hlF'
+alias ll='l -a'
+alias lt='l -tr'
 alias la='ls -A'
-alias lt='ls -atl | tac'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -89,6 +89,8 @@ alias nt='netstat -lnptu'
 alias nc='netcat -vz'
 alias dud='du -h --max-depth=1'
 alias dft='df -Th'
+
+alias pd='pushd .'
 
 alias ct='cleartool'
 alias cl='cleartool lsco -me -cview -short -recurse'
