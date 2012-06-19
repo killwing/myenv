@@ -10,3 +10,10 @@
     external = extDiff
 [color]
     ui = true
+[alias]
+    lg = log --graph --oneline --all
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+    sm = submodule
