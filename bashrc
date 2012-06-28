@@ -87,7 +87,7 @@ alias gi='gvim' # --servername GVIM --remote-silent'
 alias fu='fuser -vun'
 alias nt='netstat -lnptu'
 alias nc='netcat -vz'
-alias dud='du -h --max-depth=1'
+alias dud='du -hc --max-depth=1'
 alias dft='df -Th'
 
 alias pd='pushd .'
