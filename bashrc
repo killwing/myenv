@@ -52,6 +52,12 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+# turn off flow control
+stty -ixon
+
+# turn off beep
+setterm -bfreq 0
+
 # PATHs
 export PATH=$PATH:$HOME/bin/:$HOME/github/myenv/scripts/
 export CPLUS_INCLUDE_PATH=$C_INCLUDE_PATH:$HOME/sources/boost_1_43_0/
