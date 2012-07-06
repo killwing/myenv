@@ -68,7 +68,7 @@ export NODE_PATH=/usr/local:/usr/local/lib/node_modules
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
-alias grep='grep -Is --color=auto'
+alias grep='grep -Is --color=auto --exclude-dir=.git'
 alias fgrep='fgrep -Is --color=auto'
 alias egrep='egrep -Is --color=auto'
 
