@@ -17,3 +17,6 @@
 	ci = commit
 	br = branch
     sm = submodule
+[core]
+	autocrlf = input
+	whitespace = tab-in-indent,tabwidth=4
