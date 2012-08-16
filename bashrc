@@ -60,7 +60,6 @@ setterm -bfreq 0
 
 # PATHs
 export PATH=$PATH:$HOME/bin/:$HOME/github/myenv/scripts/
-export CPLUS_INCLUDE_PATH=$C_INCLUDE_PATH:$HOME/sources/boost_1_43_0/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 export NODE_PATH=/usr/local:/usr/local/lib/node_modules
 
@@ -86,7 +85,7 @@ alias tgx='tar xzvf'
 alias tgl='tar tzvf'
 alias pa='ps auxf'
 alias h='history'
-alias md='mkdir'
+alias md='mkdir -p'
 alias rm='mv -t ~/.local/share/Trash/files --backup=t'
 
 alias gi='gvim' # --servername GVIM --remote-silent'
@@ -104,4 +103,9 @@ alias ci='cleartool ci -nc'
 alias co='cleartool co -nc -unr'
 alias uc='cleartool unco -rm'
 alias xdiff='cleartool diff -g -pred'
+
+# source local file
+if [ -e "$HOME/.bash_local" ]; then
+    . "$HOME/.bash_local"
+fi
 

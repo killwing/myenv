@@ -116,8 +116,7 @@ set statusline=[%F]%h%w%r%m%=[%{strlen(&ft)?&ft:'none'},%{(&fenc==\"\"?&enc:&fen
 set laststatus=2
 
 set whichwrap=b,s,<,>,[,]
-set formatoptions+=mB
-set formatoptions-=cro " disable auto comment
+set formatoptions=mB
 
 " auto detect file formats
 set fileformats=unix,dos,mac
