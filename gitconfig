@@ -11,7 +11,7 @@
 [color]
     ui = true
 [alias]
-    lg = log --graph --oneline --all
+    lg = log --graph --oneline --all --decorate
 	st = status
 	co = checkout
 	ci = commit
