@@ -34,3 +34,6 @@
 [submodule "vim/vim/bundle/omnicppcomplete"]
 	path = vim/vim/bundle/omnicppcomplete
 	url = http://github.com/vim-scripts/OmniCppComplete.git
+[submodule "vim/vim/bundle/cpp11syntaxsupport"]
+	path = vim/vim/bundle/cpp11syntaxsupport
+	url = http://github.com/vim-scripts/Cpp11-Syntax-Support.git
