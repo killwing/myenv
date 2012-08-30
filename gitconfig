@@ -18,5 +18,5 @@
 	br = branch
     sm = submodule
 [core]
-	autocrlf = input
+	autocrlf = false
 	whitespace = tab-in-indent,tabwidth=4
