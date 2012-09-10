@@ -37,3 +37,6 @@
 [submodule "vim/vim/bundle/cpp11syntaxsupport"]
 	path = vim/vim/bundle/cpp11syntaxsupport
 	url = http://github.com/vim-scripts/Cpp11-Syntax-Support.git
+[submodule "vim/vim/bundle/vim-markdown"]
+	path = vim/vim/bundle/vim-markdown
+	url = http://github.com/tpope/vim-markdown.git
