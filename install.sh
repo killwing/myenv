@@ -8,4 +8,4 @@ ln -sf $repo/bashrc $HOME/.bashrc
 ln -sf $repo/inputrc $HOME/.inputrc
 ln -sf $repo/vim/vimrc $HOME/.vimrc
 ln -sf $repo/vim/vim $HOME/.vim
-ln -sf $repo/jshintconfig.json $HOME/.jshintconfig.json
+ln -sf $repo/jshintrc $HOME/.jshintrc
