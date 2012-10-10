@@ -64,6 +64,9 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 export NODE_PATH=/usr/local:/usr/local/lib/node_modules
 
 
+# set ls colors
+eval `dircolors`
+
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
