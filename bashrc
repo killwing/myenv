@@ -70,9 +70,9 @@ eval `dircolors`
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
-alias grep='grep -Is --color=auto --exclude-dir=.git'
-alias fgrep='fgrep -Is --color=auto'
-alias egrep='egrep -Is --color=auto'
+alias grep='grep -Ins --color=auto --exclude-dir=.git'
+alias fgrep='fgrep -Ins --color=auto'
+alias egrep='egrep -Ins --color=auto'
 
 alias l='ls -hlF'
 alias ll='l -a'
@@ -101,10 +101,11 @@ alias dft='df -Th'
 alias pd='pushd .'
 
 alias ct='cleartool'
-alias cl='cleartool lsco -me -cview -short -recurse'
+alias cl='cleartool lsco -me -cview -short -all'
 alias ci='cleartool ci -nc'
 alias co='cleartool co -nc -unr'
 alias uc='cleartool unco -rm'
+alias crm='cleartool lsp -oth|xargs rm -rf'
 alias xdiff='cleartool diff -g -pred'
 
 # source local file
