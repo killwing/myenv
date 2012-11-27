@@ -82,6 +82,7 @@ alias la='ls -A'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias -- -='cd -'
 
 alias tgc='tar czvf'
 alias tgx='tar xzvf'
@@ -99,6 +100,9 @@ alias dud='du -hc --max-depth=1'
 alias dft='df -Th'
 
 alias pd='pushd .'
+
+alias ag='apt-get'
+alias agi='apt-get install'
 
 alias ct='cleartool'
 alias cl='cleartool lsco -me -cview -short -all'
