@@ -133,6 +133,7 @@ set completeopt=menu
 set nf= " increase/decrease number format to decimal (default is octal)
 set ve=block " In Visual Block Mode, cursor can be positioned where there is no actual character
 set mouse=a " use mouse
+set nomousehide " do not hide mouse
 
 set diffopt=filler,vertical,foldcolumn:1
 
@@ -223,15 +224,11 @@ endf
 " Mappings
 " ------------------------------------------------------------------
 
-" wean yourself off the arrow keys etc.!
+" wean yourself off the arrow keys!
 noremap <unique> <Up> <nop>
 noremap <unique> <Down> <nop>
 noremap <unique> <Left> <nop>
 noremap <unique> <Right> <nop>
-noremap <unique> <Home> <nop>
-noremap <unique> <End> <nop>
-noremap <unique> <PageUp> <nop>
-noremap <unique> <PageDown> <nop>
 
 " moving helpful for wrap text edit
 noremap <unique> j gj
@@ -418,4 +415,3 @@ else
     \ map <buffer> <silent> <LEADER><ESC> <C-w>p:ccl<CR>|
     \ noremap <buffer> <silent> <SPACE> :call ToggleWinSize(0)<CR>
 endif
-

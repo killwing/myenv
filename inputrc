@@ -2,3 +2,32 @@ set show-all-if-ambiguous on
 set completion-ignore-case on
 set completion-map-case on
 TAB: menu-complete
+
+# alternate mappings for "page up" and "page down" to search the history
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+
+# mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word
+
+# Ctrl-del, white space split only
+"\e[3;5~": shell-kill-word
+# Ctrl-bs, not work, use Ctrl-w instead
+"\e[9;3~": shell-backward-kill-word
+
+# Alt-del
+"\e[3;3~": kill-word
+# Alt-bs: backward-kill-word already there
+
+# Shift-del
+"\e[3;2~": kill-line
+# Shift-bs, not work, use Ctrl-u instead
+"\e[9;2~": backward-kill-line
+
+
+
