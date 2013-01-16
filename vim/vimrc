@@ -230,9 +230,6 @@ noremap <unique> <Down> <nop>
 noremap <unique> <Left> <nop>
 noremap <unique> <Right> <nop>
 
-" moving helpful for wrap text edit
-noremap <unique> j gj
-noremap <unique> k gk
 " move quickly
 noremap <unique> <SPACE> 20j
 noremap <unique> <BS> 20k
@@ -242,20 +239,6 @@ nnoremap <unique> <LEADER>a ggvG$
 
 " Yanking
 nnoremap Y y$
-
-" auto close, could be overruled
-inoremap ( ()<ESC>:let leavechar=")"<CR>i
-inoremap [ []<ESC>:let leavechar="]"<CR>i
-inoremap { {}<ESC>:let leavechar="}"<CR>i
-inoremap < <><ESC>:let leavechar=">"<CR>i
-inoremap " ""<ESC>:let leavechar="\""<CR>i
-inoremap ' ''<ESC>:let leavechar="'"<CR>i
-" get out
-inoremap <unique> <C-j> <ESC>:exec "normal f" . leavechar<CR>a
-
-" easy buffer selection (use fuzzyfinder instead)
-"noremap <unique> <F8> :buffers<CR>:buffer<Space>
-
 
 " Edit another file in the same directory as the current file
 if has("unix")
@@ -415,3 +398,8 @@ else
     \ map <buffer> <silent> <LEADER><ESC> <C-w>p:ccl<CR>|
     \ noremap <buffer> <silent> <SPACE> :call ToggleWinSize(0)<CR>
 endif
+
+" autoclose
+let g:AutoClosePairs = "() [] ' \""
+"let g:AutoCloseProtectedRegions = ["Comment", "String", "Character"]
+
