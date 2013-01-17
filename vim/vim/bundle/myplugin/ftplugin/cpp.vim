@@ -8,3 +8,7 @@ setl cindent
 "setl textwidth=80
 "setl cinkeys=    
 "setl foldmethod=indent
+
+" overrule
+inoremap <buffer> < <
+inoremap <buffer> { {<CR>}<ESC>O

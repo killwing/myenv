@@ -219,6 +219,28 @@ func ToggleWinSize(vert)
     endif
 endf
 
+" AutoClose, could be overruled
+func AutoCloseOn()
+    inoremap ( ()<ESC>:let leavechar=")"<CR>i
+    inoremap { {}<ESC>:let leavechar="}"<CR>i
+    inoremap [ []<ESC>:let leavechar="]"<CR>i
+    inoremap < <><ESC>:let leavechar=">"<CR>i
+    inoremap " ""<ESC>:let leavechar="\""<CR>i
+    inoremap ' ''<ESC>:let leavechar="'"<CR>i
+endf
+
+func AutoCloseOff()
+    iunmap (
+    iunmap {
+    iunmap [
+    iunmap <
+    iunmap "
+    iunmap '
+endf
+
+call AutoCloseOn()
+" get out
+inoremap <unique> <C-j> <ESC>:exec "normal f" . leavechar<CR>a
 
 " ------------------------------------------------------------------
 " Mappings
@@ -398,8 +420,4 @@ else
     \ map <buffer> <silent> <LEADER><ESC> <C-w>p:ccl<CR>|
     \ noremap <buffer> <silent> <SPACE> :call ToggleWinSize(0)<CR>
 endif
-
-" autoclose
-let g:AutoClosePairs = "() [] ' \""
-"let g:AutoCloseProtectedRegions = ["Comment", "String", "Character"]
 
