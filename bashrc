@@ -111,7 +111,7 @@ alias co='cleartool co -nc -unr'
 alias uc='cleartool unco -rm'
 alias crm='cleartool lsp -oth|xargs rm -rf'
 alias xdiff='cleartool diff -g -pred'
-alias cf='cleartool find . -branch "brtype(branch_name)" -print -nxn''")"'
+alias cf='cleartool find . -branch "brtype(branch_name)" -print -nxn'
 
 # source local file
 if [ -e "$HOME/.bash_local" ]; then
