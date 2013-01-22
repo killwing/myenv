@@ -297,10 +297,10 @@ noremap <unique> <F9> :call Build()<CR>
 " Highlights
 " ------------------------------------------------------------------
 
-hi DiffAdd ctermfg=green guibg=limegreen
-hi DiffDelete ctermfg=red guibg=firebrick
-hi DiffChange ctermfg=yellow guibg=goldenrod
-hi DiffText ctermfg=red guibg=red
+hi DiffAdd ctermfg=black ctermbg=green guifg=black guibg=green
+hi DiffDelete ctermfg=gray ctermbg=black guifg=gray guibg=black
+hi DiffChange ctermfg=black ctermbg=yellow guifg=black guibg=yellow
+hi DiffText ctermfg=black ctermbg=red guifg=black guibg=red
 
 hi Folded ctermfg=gray guibg=gray
 "hi FoldColumn ctermfg=gray guibg=gray
