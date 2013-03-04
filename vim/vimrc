@@ -336,16 +336,20 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
 hi def link NERDTreeRO Normal
 
+
+" use tagbar instead of taglist
+noremap <unique> <silent> <F5> :TagbarToggle<CR>
+
 " taglist (need ctags util)
-noremap <unique> <silent> <F5> :TlistToggle<CR>
-let Tlist_Show_One_File = 1 " Displaying tags for only one file
-let Tlist_Exit_OnlyWindow = 1 " if you are the last, kill yourself
-let Tlist_Use_Right_Window = 1 " split to the right side of the screen
-let Tlist_Sort_Type = "name" " sort by order or name
-let Tlist_Compact_Format = 1 " do not show help
-let Tlist_GainFocus_On_ToggleOpen = 1 " Jump to taglist window on open.
-let Tlist_Enable_Fold_Column = 0 " Don't Show the fold indicator column in the taglist window.
-let Tlist_WinWidth = 40
+"noremap <unique> <silent> <F5> :TlistToggle<CR>
+"let Tlist_Show_One_File = 1 " Displaying tags for only one file
+"let Tlist_Exit_OnlyWindow = 1 " if you are the last, kill yourself
+"let Tlist_Use_Right_Window = 1 " split to the right side of the screen
+"let Tlist_Sort_Type = "name" " sort by order or name
+"let Tlist_Compact_Format = 1 " do not show help
+"let Tlist_GainFocus_On_ToggleOpen = 1 " Jump to taglist window on open.
+"let Tlist_Enable_Fold_Column = 0 " Don't Show the fold indicator column in the taglist window.
+"let Tlist_WinWidth = 40
 "hi MyTagListTagName term=bold cterm=none ctermfg=Black ctermbg=DarkYellow gui=none guifg=Black guibg=#ffe4b3
 "hi MyTagListTagScope term=NONE cterm=NONE ctermfg=Blue gui=NONE guifg=Blue
 "hi MyTagListTitle term=bold cterm=bold ctermfg=DarkRed ctermbg=LightGray gui=bold guifg=DarkRed guibg=LightGray
