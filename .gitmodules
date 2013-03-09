@@ -16,15 +16,9 @@
 [submodule "vim/vim/bundle/sketch"]
 	path = vim/vim/bundle/sketch
 	url = http://github.com/vim-scripts/sketch.vim.git
-[submodule "vim/vim/bundle/taglist"]
-	path = vim/vim/bundle/taglist
-	url = http://github.com/vim-scripts/taglist.vim.git
 [submodule "vim/vim/bundle/tetris"]
 	path = vim/vim/bundle/tetris
 	url = http://github.com/vim-scripts/TeTrIs.vim.git
-[submodule "vim/vim/bundle/fuzzyfinder"]
-	path = vim/vim/bundle/fuzzyfinder
-	url = http://github.com/vim-scripts/FuzzyFinder.git
 [submodule "vim/vim/bundle/l9"]
 	path = vim/vim/bundle/l9
 	url = http://github.com/vim-scripts/L9.git
@@ -49,3 +43,6 @@
 [submodule "vim/vim/bundle/tagbar"]
 	path = vim/vim/bundle/tagbar
 	url = http://github.com/majutsushi/tagbar.git
+[submodule "vim/vim/bundle/ctrlp"]
+	path = vim/vim/bundle/ctrlp
+	url = http://github.com/kien/ctrlp.vim.git

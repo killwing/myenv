@@ -336,49 +336,19 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
 hi def link NERDTreeRO Normal
 
-
-" use tagbar instead of taglist
+" tagbar
 noremap <unique> <silent> <F5> :TagbarToggle<CR>
 
-" taglist (need ctags util)
-"noremap <unique> <silent> <F5> :TlistToggle<CR>
-"let Tlist_Show_One_File = 1 " Displaying tags for only one file
-"let Tlist_Exit_OnlyWindow = 1 " if you are the last, kill yourself
-"let Tlist_Use_Right_Window = 1 " split to the right side of the screen
-"let Tlist_Sort_Type = "name" " sort by order or name
-"let Tlist_Compact_Format = 1 " do not show help
-"let Tlist_GainFocus_On_ToggleOpen = 1 " Jump to taglist window on open.
-"let Tlist_Enable_Fold_Column = 0 " Don't Show the fold indicator column in the taglist window.
-"let Tlist_WinWidth = 40
-"hi MyTagListTagName term=bold cterm=none ctermfg=Black ctermbg=DarkYellow gui=none guifg=Black guibg=#ffe4b3
-"hi MyTagListTagScope term=NONE cterm=NONE ctermfg=Blue gui=NONE guifg=Blue
-"hi MyTagListTitle term=bold cterm=bold ctermfg=DarkRed ctermbg=LightGray gui=bold guifg=DarkRed guibg=LightGray
-"hi MyTagListComment ctermfg=DarkGreen guifg=DarkGreen
-"hi MyTagListFileName term=bold cterm=bold ctermfg=Black ctermbg=LightBlue gui=bold guifg=Black guibg=LightBlue
-
-" minibufexpl -- removed because of performance issue
-" (fugitive plugin also have performance issue when ssh)
-"let g:miniBufExplTabWrap = 1 " make tabs show complete (no broken on two lines)
-"let g:miniBufExplModSelTarget = 1 " If you use other explorers like TagList you can (As of 6.2.8) set it at 1:
-"let g:miniBufExplUseSingleClick = 1 " If you would like to single click on tabs rather than double clicking on them to goto the selected buffer.
-"let g:miniBufExplMaxSize = 1 " <max lines: default 0> setting this to 0 will mean the window gets as big as needed to fit all your buffers.
-"let g:miniBufExplMapCTabSwitchBufs = 1 " use <C-tab> and <C-S-tab> to switch buffers
-"let g:miniBufExplCheckDupeBufs = 0 " do not check dupe buffers, too slow!
-"let g:miniBufExplShowBufNumbers = 0
-"let g:miniBufExplForceSyntaxEnable = 1
-"hi MBENormal ctermbg=LightGray ctermfg=DarkGray guibg=LightGray guifg=DarkGray
-"hi MBEChanged ctermbg=Red ctermfg=DarkRed guibg=Red guifg=DarkRed
-"hi MBEVisibleNormal term=bold cterm=bold ctermbg=Gray ctermfg=Black gui=bold guibg=Gray guifg=Black
-"hi MBEVisibleNormalActive term=bold cterm=bold ctermbg=Gray ctermfg=Black gui=bold guibg=Gray guifg=Black
-"hi MBEVisibleChanged term=bold cterm=bold ctermbg=DarkRed ctermfg=Black gui=bold guibg=DarkRed guifg=Black
-"hi MBEVisibleChangedActive term=bold cterm=bold ctermbg=DarkRed ctermfg=Black gui=bold guibg=DarkRed guifg=Black
-
-" fuzzyfinder
-let g:fuf_coveragefile_globPatterns = ['**/*.h', '**/*.c', '**/*.hpp', '**/*.cpp', '**/*.cxx']
-" hang with big tags file
-"noremap <unique> <silent> <F6> :FufTaggedFile!<CR>
-noremap <unique> <silent> <F6> :FufCoverageFile!<CR>
-noremap <unique> <silent> <F8> :FufBuffer!<CR>
+" ctrlp
+noremap <unique> <silent> <F6> :CtrlP<CR>
+noremap <unique> <silent> <F8> :CtrlPBuffer<CR>
+let g:ctrlp_by_filename = 1
+let g:ctrlp_max_height = 20
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|dll|a|o|so|lo|la|pyc|d)$',
+    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS' }
+"   \ 'file': '\v(\.cpp|\.h|\.hh|\.cxx)@<!$'
 
 " quickhl
 nmap <unique> <silent> <LEADER>h <Plug>(quickhl-toggle)
