@@ -46,3 +46,6 @@
 [submodule "vim/vim/bundle/ctrlp"]
 	path = vim/vim/bundle/ctrlp
 	url = http://github.com/kien/ctrlp.vim.git
+[submodule "vim/vim/bundle/IndexedSearch"]
+	path = vim/vim/bundle/IndexedSearch
+	url = http://github.com/vim-scripts/IndexedSearch
