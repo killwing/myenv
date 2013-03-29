@@ -49,3 +49,6 @@
 [submodule "vim/vim/bundle/IndexedSearch"]
 	path = vim/vim/bundle/IndexedSearch
 	url = http://github.com/vim-scripts/IndexedSearch
+[submodule "vim/vim/bundle/tabular"]
+	path = vim/vim/bundle/tabular
+	url = http://github.com/godlygeek/tabular.git
