@@ -160,17 +160,17 @@ endf
 
 " toggle fold state between closed and opened.
 func ToggleFold()
-	if foldlevel('.') == 0
-		"normal! l
-	else
-		if foldclosed('.') < 0
-			. foldclose
-		else
-			. foldopen
-		endif
-	endif
-	" Clear status line
-	echo
+    if foldlevel('.') == 0
+        "normal! l
+    else
+        if foldclosed('.') < 0
+            . foldclose
+        else
+            . foldopen
+        endif
+    endif
+    " Clear status line
+    echo
 endf
 
 " show current highlight group
@@ -305,6 +305,13 @@ hi DiffText ctermfg=black ctermbg=red guifg=black guibg=red
 hi Folded ctermfg=gray guibg=gray
 "hi FoldColumn ctermfg=gray guibg=gray
 
+" highlight trailing spaces
+hi ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+
+
 " ------------------------------------------------------------------
 " Commands
 " ------------------------------------------------------------------
@@ -394,4 +401,5 @@ else
     \ map <buffer> <silent> <LEADER><ESC> <C-w>p:ccl<CR>|
     \ noremap <buffer> <silent> <SPACE> :call ToggleWinSize(0)<CR>
 endif
+
 
