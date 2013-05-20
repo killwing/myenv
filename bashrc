@@ -9,8 +9,8 @@
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
 force_color_prompt=yes
-PS1="\[\e[35;1m\]\h:\w # \[\e[0m\]" 
-#PROMPT_COMMAND='echo -n "]0;${PWD}"' 
+PS1="\[\e[35;1m\]\h:\w # \[\e[0m\]"
+#PROMPT_COMMAND='echo -n "]0;${PWD}"'
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -101,7 +101,6 @@ alias dft='df -Th'
 
 alias pd='pushd .'
 
-alias ag='apt-get'
 alias agi='apt-get install'
 
 alias ct='cleartool'
