@@ -381,5 +381,5 @@ noremap <unique> <silent> <LEADER>gr :Gtags -r<CR><CR>
 autocmd BufNewFile NERD_tree_1 noremap <buffer> <silent> <SPACE> :call ToggleWinSize(1)<CR>0
 autocmd BufNewFile __Tagbar__ noremap <buffer> <silent> <LEADER><SPACE> :call ToggleWinSize(1)<CR>0
 autocmd BufReadPost quickfix
-\ noremap <buffer> <silent> q :ccl<CR>|
+\ noremap <buffer> <silent> q <C-w>p:ccl<CR>|
 \ noremap <buffer> <silent> <SPACE> :call ToggleWinSize(0)<CR>
