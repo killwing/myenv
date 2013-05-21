@@ -317,9 +317,9 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 " ------------------------------------------------------------------
 
 " clearcase
-command CO silent exe '!cleartool co -nc -unr ' . fnamemodify(bufname('%'), ':p')
-command CI silent exe '!cleartool ci -nc ' . fnamemodify(bufname('%'), ':p')
-command UC silent exe '!cleartool unco -rm ' . fnamemodify(bufname('%'), ':p')
+command CO silent exe '!cleartool co -nc -unr ' . fnamemodify(bufname('%'), ':p') | exe 'redraw!'
+command CI silent exe '!cleartool ci -nc ' . fnamemodify(bufname('%'), ':p') | exe 'redraw!'
+command UC silent exe '!cleartool unco -rm ' . fnamemodify(bufname('%'), ':p') | exe 'redraw!'
 command SCP exe '!scp ' . fnamemodify(bufname('%'), ':h') . '/.libs/*.so root@desthost:/home'
 command DIFF call CtDiff()
 
