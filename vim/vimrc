@@ -197,9 +197,10 @@ endf
 func Build()
     exe "wa"
     exe "cd %:h"
-    exe "make"
+    silent exe "make"
     silent exe "cw"
     silent exe "cc"
+    exe "redraw!"
 endf
 
 " toggle window size
