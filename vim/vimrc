@@ -70,6 +70,7 @@ set smartindent
 set shiftwidth=4 " set indent to 4 spaces
 set tabstop=4 " set tabstop to 4 spaces
 set expandtab " set expandtab on, the tab will be change to space automaticaly
+set smarttab
 
 set clipboard=unnamed,unnamedplus " use clipboard register '*'(unnamed) and '+'(unnamedplus) for all y, d, c, p ops
 
@@ -136,6 +137,8 @@ set mouse=a " use mouse
 set nomousehide " do not hide mouse
 
 set diffopt=filler,vertical,foldcolumn:1
+
+set scrolloff=5 " keep cursor away from edges of screen
 
 
 " ------------------------------------------------------------------
