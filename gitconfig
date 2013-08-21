@@ -19,4 +19,5 @@
     sm = submodule
 [core]
 	autocrlf = false
+    safecrlf = true
 	whitespace = tab-in-indent,tabwidth=4
