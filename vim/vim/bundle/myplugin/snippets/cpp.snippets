@@ -1,0 +1,45 @@
+extends c
+
+snippet Inc "#include <> (Inc)" !
+#include <${1:iostream}>
+endsnippet
+
+snippet cl "class .. (class)" !
+class ${1:`!p snip.rv = snip.basename or "name"`} {
+public:
+	${1/(\w+).*/$1/}(${2:arguments}) {}
+	~${1/(\w+).*/$1/}() {}
+
+private:
+	${0:// data}
+};
+endsnippet
+
+snippet ns "namespace .. (namespace)" !
+namespace ${1:`!p snip.rv = snip.basename or "name"`} {
+	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+} // namespace $1
+endsnippet
+
+snippet uns
+using namespace ${1:std};
+endsnippet
+
+snippet once "Include header once only guard" !
+#ifndef ${1:`!p snip.rv = snip.basename.upper()+"_H" or "UNTITLED_H"`}
+#define $1
+
+${0}
+
+#endif // $1
+
+endsnippet
+
+snippet tc "try .. catch"
+try {
+	${2}
+} catch (const ${1:std::exception}& e) {
+	${0}
+}
+endsnippet
+
