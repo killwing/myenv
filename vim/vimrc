@@ -25,6 +25,9 @@ syntax on
 filetype plugin indent on
 
 if has("gui_running")
+    let g:molokai_original=1
+    colorscheme molokai
+
     " guifont
     if has("win32")
         set guifont=Fixedsys\ Console:h11
@@ -40,11 +43,9 @@ if has("gui_running")
     endif
 
 else " if we are in terminal mode
-    set t_Co=256
+    "set t_Co=256
+    colorscheme darkdot
 endif
-
-let g:molokai_original=1
-colorscheme molokai
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
