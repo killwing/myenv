@@ -25,8 +25,8 @@ syntax on
 filetype plugin indent on
 
 if has("gui_running")
-    " color scheme define
-    colorscheme night
+    let g:molokai_original=1
+    colorscheme molokai
 
     " guifont
     if has("win32")
@@ -43,6 +43,7 @@ if has("gui_running")
     endif
 
 else " if we are in terminal mode
+    "set t_Co=256
     colorscheme darkdot
 endif
 
@@ -56,6 +57,7 @@ autocmd BufReadPost *
 
 " C++11 syntax support
 autocmd BufNewFile,BufRead *.h,*.hpp,*.hxx,*.cpp,*.cxx set syntax=cpp11
+
 
 " ------------------------------------------------------------------
 " Options
