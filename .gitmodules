@@ -58,3 +58,6 @@
 [submodule "vim/vim/bundle/ultisnips"]
 	path = vim/vim/bundle/ultisnips
 	url = http://github.com/SirVer/ultisnips.git
+[submodule "vim/vim/bundle/emmet"]
+	path = vim/vim/bundle/emmet
+	url = http://github.com/mattn/emmet-vim.git
