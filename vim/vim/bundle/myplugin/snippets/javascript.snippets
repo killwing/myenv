@@ -1,0 +1,59 @@
+snippet for "for (...) {...}" !
+for (var ${2:i} = 0; $2 < ${1:array}.length; ++$2) {
+	${3:$1[$2]}${VISUAL}$0
+};
+endsnippet
+
+snippet fun "function(fun)" !
+function ${1:function_name}(${2:argument}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fn "function(fun)" w
+function(${1:argument}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fnb "function(fun)" w
+function(${1:argument}) {
+	${VISUAL}$0
+}.bind(this)
+endsnippet
+
+snippet iife "Immediately-Invoked Function Expression (iife)" !
+(function(${1:argument}) {
+	${VISUAL}$0
+}(${2:$1}));
+endsnippet
+
+snippet wh "while loop" !
+while (${1:/* condition */}) {
+	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}
+endsnippet
+
+snippet ife "if ___ else" !
+if (${1:condition}) {
+  ${2://code}
+} else {
+  ${3://code}
+}
+endsnippet
+
+snippet sc "switch .. case"
+switch (${1}) {
+case ${2}:
+	${3}
+	break;
+default:
+	${0}
+	break;
+}
+endsnippet
+
+snippet cd "console.debug"
+console.debug(${1:"${2:value}"});
+endsnippet
+
