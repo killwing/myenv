@@ -396,3 +396,5 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 
+"" numbers
+let g:numbers_exclude = ['tagbar', 'nerdtree']
