@@ -299,6 +299,9 @@ noremap <unique> <silent> <LEADER>f :call ToggleFold()<CR>
 
 noremap <unique> <F9> :call Build()<CR>
 
+" search current word with Ag in same directory
+noremap <unique> <Leader>ag :Ag! -Uw <C-R>=expand("<cword>")<CR> <C-R>=expand("%:p:h")<CR> <CR>
+
 " ------------------------------------------------------------------
 " Highlights
 " ------------------------------------------------------------------
