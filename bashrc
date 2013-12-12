@@ -59,7 +59,7 @@ stty -ixon
 setterm -bfreq 0
 
 # PATHs
-export PATH=$PATH:$HOME/bin/:$HOME/github/myenv/scripts/
+export PATH=$PATH:$HOME/bin/:$HOME/.myenv/scripts/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 export NODE_PATH=/usr/local:/usr/local/lib/node_modules
 
@@ -67,6 +67,7 @@ export NODE_PATH=/usr/local:/usr/local/lib/node_modules
 # set ls colors
 eval `dircolors`
 
+# alias
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
@@ -111,6 +112,9 @@ alias uc='cleartool unco -rm'
 alias crm='cleartool lsp -oth|xargs rm -rf'
 alias xdiff='cleartool diff -g -pred'
 alias cf='cleartool find . -branch "brtype(branch_name)" -print -nxn'
+
+# jump around
+. $HOME/.myenv/vendor/z/z.sh
 
 # source local file
 if [ -e "$HOME/.bash_local" ]; then

@@ -61,3 +61,6 @@
 [submodule "vim/vim/bundle/emmet"]
 	path = vim/vim/bundle/emmet
 	url = http://github.com/mattn/emmet-vim.git
+[submodule "vendor/z"]
+	path = vendor/z
+	url = https://github.com/rupa/z.git
