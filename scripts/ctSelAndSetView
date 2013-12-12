@@ -1,4 +1,6 @@
 #!/bin/bash
+# list all of your views to select and set
+
 views=`cleartool lsview -s |grep echekai_.*_view`
 read -a vs < <(echo $views)
 

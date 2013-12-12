@@ -1,0 +1,21 @@
+#!/bin/bash
+# diff your checkout files in unified format made in current clearcase view
+
+file="-all"
+if [ $# -eq 1 ]; then
+    file=$1
+    #echo $file
+fi
+
+IFS_OLD=$IFS
+IFS=$'\x0a'
+for i in $(cleartool lsco -me -cview -fmt "%n %PVn\n" $file); do
+     IFS=$IFS_OLD
+     set -- $i
+     if [ -d $1 ];then
+         continue
+     fi
+     diff -uwB $1@@$2 $1 | colordiff
+     echo
+done
+
