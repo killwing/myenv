@@ -89,6 +89,7 @@ alias tgc='tar czvf'
 alias tgx='tar xzvf'
 alias tgl='tar tzvf'
 alias pa='ps auxf'
+alias pt='ps H -o user,pid,lwp,nlwp,%cpu,%mem,vsz,rss,stat,start,time,command,comm,wchan -p'
 alias h='history'
 alias md='mkdir -p'
 alias rm='mv -t ~/.local/share/Trash/files --backup=t'
@@ -103,6 +104,8 @@ alias dft='df -Th'
 alias pd='pushd .'
 
 alias agi='apt-get install'
+
+alias ris='printf "\033c"' # hard reset
 
 alias ct='cleartool'
 #alias cl='cleartool lsco -me -cview -short -all'
