@@ -71,8 +71,10 @@ set smartindent
 
 set shiftwidth=4 " set indent to 4 spaces
 set tabstop=4 " set tabstop to 4 spaces
+set softtabstop=4 " set softtabstop to 4 spaces
 set expandtab " set expandtab on, the tab will be change to space automaticaly
 set smarttab
+set shiftround
 
 set clipboard=unnamed,unnamedplus " use clipboard register '*'(unnamed) and '+'(unnamedplus) for all y, d, c, p ops
 
