@@ -107,16 +107,6 @@ alias agi='apt-get install'
 
 alias ris='printf "\033c"' # hard reset
 
-alias ct='cleartool'
-#alias cl='cleartool lsco -me -cview -short -all'
-alias cl='cleartool lsco -all -me -cview -fmt "%n %PVn\n"'
-alias ci='cleartool ci -nc'
-alias co='cleartool co -nc -unr'
-alias uc='cleartool unco -rm'
-alias crm='cleartool lsp -oth|xargs rm -rf'
-alias xdiff='cleartool diff -g -pred'
-alias cf='cleartool find . -branch "brtype(branch_name)" -print -nxn'
-
 # jump around
 . $HOME/.myenv/vendor/z/z.sh
 
