@@ -1,23 +1,19 @@
 [user]
     name = kelvin
     email = kowochen@gmail.com
-[merge]
-    tool = extMerge
-[mergetool "extMerge"]
-    cmd = extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
-    trustExitCode = false
-[diff]
-    external = extDiff
 [color]
     ui = true
 [alias]
     lg = log --graph --oneline --all --decorate
-	st = status
-	co = checkout
-	ci = commit
-	br = branch
+    st = status
+    co = checkout
+    ci = commit
+    nc = commit --allow-empty-message -m ''
+    br = branch
     sm = submodule
 [core]
-	autocrlf = false
+    autocrlf = false
     safecrlf = true
-	whitespace = tab-in-indent,tabwidth=4
+    whitespace = tab-in-indent,tabwidth=4
+[push]
+    default = simple
