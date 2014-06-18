@@ -9,8 +9,10 @@
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
 force_color_prompt=yes
-PS1="\[\e[35;1m\]\h:\w # \[\e[0m\]"
+PS1='\[\e[35;1m\]\h:\w\[\e[01;33m\]$(__git_ps1) \[\e[35;1m\]# \[\e[0m\]'
 #PROMPT_COMMAND='echo -n "]0;${PWD}"'
+
+GIT_PS1_SHOWDIRTYSTATE=1
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
