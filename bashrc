@@ -55,17 +55,10 @@ shopt -s checkwinsize
 # turn off flow control
 stty -ixon
 
-# turn off beep
-setterm -bfreq 0
-
 # PATHs
-export PATH=$PATH:$HOME/bin/:$HOME/.myenv/scripts/
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
+export PATH=/usr/local/bin:$HOME/app/bin:$HOME/.myenv/scripts:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export NODE_PATH=/usr/local:/usr/local/lib/node_modules
-
-
-# set ls colors
-eval `dircolors`
 
 # alias
 alias ls='ls --color=auto'
@@ -95,6 +88,7 @@ alias md='mkdir -p'
 alias rm='mv -t ~/.local/share/Trash/files --backup=t'
 
 alias gi='gvim' # --servername GVIM --remote-silent'
+alias vi='vim'
 alias fu='fuser -vun'
 alias nt='netstat -lnptu'
 alias nc='netcat -vz'
