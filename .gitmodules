@@ -64,3 +64,6 @@
 [submodule "vendor/z"]
 	path = vendor/z
 	url = https://github.com/rupa/z.git
+[submodule "vendor/Boost-Pretty-Printer"]
+	path = vendor/Boost-Pretty-Printer
+	url = http://github.com/ruediger/Boost-Pretty-Printer.git
