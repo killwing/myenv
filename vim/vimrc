@@ -15,6 +15,12 @@
 set nocompatible
 
 " Second, init vim-pathogen
+runtime bundle/pathogen/autoload/pathogen.vim
+
+let g:pathogen_disabled = []
+if v:version < '703.584'
+    call add(g:pathogen_disabled, 'YouCompleteMe')
+endif
 call pathogen#infect()
 
 
@@ -201,6 +207,7 @@ func CtDiff()
 endf
 
 " build from current dir
+"let &makeprg = '[[ -f Makefile ]] && make || make -C ..'
 func Build()
     exe "wa"
     exe "cd %:h"
@@ -339,13 +346,6 @@ command DIFF call CtDiff()
 " Plugins
 " ------------------------------------------------------------------
 
-" supertab
-let tagfiles = tagfiles()
-if !empty(tagfiles)
-    " default is <c-p>
-    let g:SuperTabDefaultCompletionType = "context"
-endif
-
 " nerdtree
 noremap <unique> <silent> <F4> :NERDTreeToggle<CR>
 noremap <unique> <silent> <LEADER>nf :NERDTreeFind<CR>
@@ -395,11 +395,23 @@ autocmd BufReadPost quickfix
 \ noremap <buffer> <silent> q <C-w>p:ccl<CR>|
 \ noremap <buffer> <silent> <SPACE> :call ToggleWinSize(0)<CR>
 
+" numbers
+let g:numbers_exclude = ['tagbar', 'nerdtree']
+
+" supertab
+let g:SuperTabDefaultCompletionType = '<c-n>'
+
 " ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 
-"" numbers
-let g:numbers_exclude = ['tagbar', 'nerdtree']
+" YouCompleteMe
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_always_populate_location_list = 1
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+

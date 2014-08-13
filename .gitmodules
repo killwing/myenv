@@ -67,3 +67,6 @@
 [submodule "vendor/Boost-Pretty-Printer"]
 	path = vendor/Boost-Pretty-Printer
 	url = http://github.com/ruediger/Boost-Pretty-Printer.git
+[submodule "vim/vim/bundle/YouCompleteMe"]
+	path = vim/vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
