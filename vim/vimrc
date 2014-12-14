@@ -210,7 +210,7 @@ endf
 "let &makeprg = '[[ -f Makefile ]] && make || make -C ..'
 func Build()
     exe "wa"
-    exe "cd %:h"
+    "exe "cd %:h"
     silent exe "make"
     silent exe "cw"
     silent exe "cc"
@@ -349,7 +349,7 @@ command DIFF call CtDiff()
 " nerdtree
 noremap <unique> <silent> <F4> :NERDTreeToggle<CR>
 noremap <unique> <silent> <LEADER>nf :NERDTreeFind<CR>
-let NERDTreeIgnore = ['\.a[[file]]', '\.o[[file]]', '\.so[[file]]', '\.lo[[file]]', '\.la[[file]]', '\.pyc[[file]]', '\.d[[file]]']
+let NERDTreeIgnore = ['\.a$', '\.o$', '\.so$', '\.lo$', '\.la$', '\.pyc$', '\.d$', '\.gcno$', '\.gcda$']
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
 hi def link NERDTreeRO Normal
@@ -376,13 +376,9 @@ nmap <unique> <silent> <C-h> :match<CR>:nohlsearch<CR><Plug>(quickhl-reset)
 " sketch
 noremap <unique> <F7> :call ToggleSketch()<CR>
 
-" omnicppcomplete (need ctags DB)
-let OmniCpp_ShowPrototypeInAbbr = 1
-let OmniCpp_DefaultNamespaces = ["std"]
-
 " gtags (need gtags DB)
 noremap <unique> <LEADER>gt :Gtags<SPACE>
-noremap <unique> <silent> <LEADER>gd :Gtags<CR><CR>
+"noremap <unique> <silent> <LEADER>gd :Gtags<CR><CR>
 noremap <unique> <silent> <LEADER>gg :Gtags -g<CR><CR>
 noremap <unique> <silent> <LEADER>gr :Gtags -r<CR><CR>
 
@@ -414,4 +410,5 @@ let g:ycm_always_populate_location_list = 1
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+nnoremap <leader>gd :YcmCompleter GoToImprecise<CR>
 
