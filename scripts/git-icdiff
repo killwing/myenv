@@ -1,0 +1,2 @@
+#!/bin/sh
+git difftool --no-prompt -x ~/.myenv/vendor/icdiff/icdiff "$@"
