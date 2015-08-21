@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.\(md\.html\) set syntax=markdown
+autocmd BufRead,BufNewFile *.md.html set ft=markdown

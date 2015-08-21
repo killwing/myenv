@@ -35,8 +35,8 @@ fi
 HISTCONTROL=ignoredups:ignorespace
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 # keep the times of the commands in history.
 HISTTIMEFORMAT='%F %T '
