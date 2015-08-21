@@ -401,7 +401,7 @@ let g:SuperTabDefaultCompletionType = '<c-n>'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "usnippets"]
 
 " YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
