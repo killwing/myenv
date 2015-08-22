@@ -63,6 +63,10 @@ autocmd BufReadPost *
 
 " C++11 syntax support
 autocmd BufNewFile,BufRead *.h,*.hpp,*.hxx,*.cpp,*.cxx set syntax=cpp11
+" Go to definition for Go (for vim-go)
+autocmd BufNewFile,BufRead *.go nnoremap <leader>gd :GoDef<CR>
+" hanlde file ext md.html
+autocmd BufNewFile,BufRead *.md.html set ft=markdown
 
 
 " ------------------------------------------------------------------
