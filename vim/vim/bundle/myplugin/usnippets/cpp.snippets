@@ -1,10 +1,14 @@
 extends c
 
+snippet beginend "$1.begin(), $1.end() (beginend)"
+${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}end()
+endsnippet
+
 snippet Inc "#include <> (Inc)" !
 #include <${0:iostream}>
 endsnippet
 
-snippet cl "class .. (class)" !
+snippet cl "class .. (class)"
 class ${1:`!p snip.rv = snip.basename or "name"`} {
 public:
 	${1/(\w+).*/$1/}(${2:arguments}) {}
@@ -15,7 +19,7 @@ private:
 };
 endsnippet
 
-snippet ns "namespace .. (namespace)" !
+snippet ns "namespace .. (namespace)"
 namespace ${1:`!p snip.rv = snip.basename or "name"`} {
 	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
 } // namespace $1
@@ -23,16 +27,6 @@ endsnippet
 
 snippet uns
 using namespace ${1:std};
-endsnippet
-
-snippet once "Include header once only guard" !
-#ifndef ${1:`!p snip.rv = snip.basename.upper()+"_H" or "UNTITLED_H"`}
-#define $1
-
-${0}
-
-#endif // $1
-
 endsnippet
 
 snippet tc "try .. catch"
