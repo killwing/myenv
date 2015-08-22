@@ -61,10 +61,6 @@ autocmd BufReadPost *
 \   exe "normal g`\"" |
 \ endif
 
-" C++11 syntax support
-autocmd BufNewFile,BufRead *.h,*.hpp,*.hxx,*.cpp,*.cxx set syntax=cpp11
-" Go to definition for Go (for vim-go)
-autocmd BufNewFile,BufRead *.go nnoremap <leader>gd :GoDef<CR>
 " hanlde file ext md.html
 autocmd BufNewFile,BufRead *.md.html set ft=markdown
 
@@ -420,3 +416,8 @@ nnoremap <leader>gd :YcmCompleter GoToImprecise<CR>
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
+" vim-go: go to definition
+autocmd FileType go nnoremap <leader>gd :GoDef<CR>
+
+" cpp11syntaxsupport
+autocmd FileType cpp set syntax=cpp11
