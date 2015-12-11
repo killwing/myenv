@@ -11,6 +11,7 @@
     nc = commit --allow-empty-message -m ''
     br = branch
     sm = submodule
+    smu = submodule update --init --recursive
 [core]
     autocrlf = false
     safecrlf = true

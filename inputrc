@@ -3,9 +3,9 @@ set completion-ignore-case on
 set completion-map-case on
 TAB: menu-complete
 
-# alternate mappings for "page up" and "page down" to search the history
-"\e[5~": history-search-backward
-"\e[6~": history-search-forward
+# alternate mappings for "up" and "down" to search the history
+"\e[A": history-search-backward
+"\e[B": history-search-forward
 
 # mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
 "\e[1;5C": forward-word
