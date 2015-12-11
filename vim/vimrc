@@ -268,8 +268,8 @@ noremap <unique> <Left> <nop>
 noremap <unique> <Right> <nop>
 
 " move quickly
-noremap <unique> <SPACE> 20j
-noremap <unique> <BS> 20k
+nnoremap <unique> <SPACE> 20j
+nnoremap <unique> <BS> 20k
 
 " win-like select all
 nnoremap <unique> <LEADER>a ggvG$

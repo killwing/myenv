@@ -23,13 +23,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
@@ -62,8 +55,42 @@ export PATH=/usr/local/bin:$HOME/app/bin:$HOME/.myenv/scripts:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export NODE_PATH=/usr/local:/usr/local/lib/node_modules
 
+MAC_BREW_PREFIX=''
+if [ `uname` == 'Darwin' ];then
+    MAC_BREW_PREFIX=`brew --prefix`
+
+    # move to trash, from macworld hints
+    function rm() {
+        local path
+        for path in "$@"; do
+            # ignore any arguments
+            if [[ "$path" = -* ]]; then :
+            else
+                local dst=${path##*/}
+                # append the time if necessary
+                while [ -e ~/.Trash/"$dst" ]; do
+                    dst="$dst "$(date +%H-%M-%S)
+                done
+                mv "$path" ~/.Trash/"$dst"
+            fi
+        done
+    }
+
+    alias ls='ls -G'
+elif [ `uname` == 'Linux' ];then
+    alias rm='mv -t ~/.local/share/Trash/files --backup=t'
+    alias ls='ls --color=auto'
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f $MAC_BREW_PREFIX/etc/bash_completion ] && ! shopt -oq posix; then
+    . $MAC_BREW_PREFIX/etc/bash_completion
+fi
+
+
 # alias
-alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep -Ins --color=auto --exclude-dir=.git'
@@ -87,7 +114,6 @@ alias pa='ps auxf'
 alias pt='ps H -o user,pid,lwp,nlwp,%cpu,%mem,vsz,rss,stat,start,time,command,comm,wchan -p'
 alias h='history'
 alias md='mkdir -p'
-alias rm='mv -t ~/.local/share/Trash/files --backup=t'
 
 alias gi='gvim' # --servername GVIM --remote-silent'
 alias vi='vim'
@@ -96,8 +122,6 @@ alias nt='netstat -lnptu'
 alias nc='netcat -vz'
 alias dud='du -hc --max-depth=1'
 alias dft='df -Th'
-
-alias pd='pushd .'
 
 alias agi='apt-get install'
 
