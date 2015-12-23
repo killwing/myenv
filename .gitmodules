@@ -88,3 +88,9 @@
 [submodule "vim/vim/bundle/tern_for_vim"]
 	path = vim/vim/bundle/tern_for_vim
 	url = https://github.com/ternjs/tern_for_vim.git
+[submodule "vim/vim/bundle/vim-javascript"]
+	path = vim/vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "vim/vim/bundle/vim-esformatter"]
+	path = vim/vim/bundle/vim-esformatter
+	url = https://github.com/millermedeiros/vim-esformatter.git
