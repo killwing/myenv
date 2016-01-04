@@ -12,3 +12,4 @@ ln -sfnv $repo/vim/vim               $HOME/.vim
 ln -sfv  $repo/gdbinit               $HOME/.gdbinit
 ln -sfv  $repo/agignore              $HOME/.agignore
 ln -sfv  $repo/ycm_extra_conf.py     $HOME/.ycm_extra_conf.py
+ln -sfv  $repo/esformatter           $HOME/.esformatter
