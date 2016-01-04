@@ -89,6 +89,9 @@ if [ -f $MAC_BREW_PREFIX/etc/bash_completion ] && ! shopt -oq posix; then
     . $MAC_BREW_PREFIX/etc/bash_completion
 fi
 
+if [ -f /usr/share/git/completion/git-prompt.sh ]; then
+    . /usr/share/git/completion/git-prompt.sh
+fi
 
 # alias
 alias dir='dir --color=auto'
@@ -105,6 +108,7 @@ alias la='ls -A'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias .....='cd ../../../..'
 alias -- -='cd -'
 
 alias tgc='tar czvf'

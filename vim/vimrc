@@ -423,5 +423,8 @@ vmap <C-v> <Plug>(expand_region_shrink)
 autocmd FileType go nnoremap <leader>gd :GoDef<CR>
 let g:go_fmt_autosave = 1
 
+" tern
+autocmd FileType javascript nnoremap <leader>gd :TernDef<CR>
+
 " cpp11syntaxsupport
 autocmd FileType cpp set syntax=cpp11
