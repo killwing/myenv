@@ -129,6 +129,8 @@ alias dud='du -hc --max-depth=1'
 alias dft='df -Th'
 
 alias agi='apt-get install'
+alias sc='systemctl'
+alias pj='python -m json.tool'
 
 alias ris='printf "\033c"' # hard reset
 
