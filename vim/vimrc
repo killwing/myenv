@@ -421,6 +421,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 
 " vim-go: go to definition
 autocmd FileType go nnoremap <leader>gd :GoDef<CR>
+let g:go_fmt_command = "goimports"
 let g:go_fmt_autosave = 1
 
 " tern
