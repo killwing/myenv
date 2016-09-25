@@ -153,6 +153,8 @@ set diffopt=filler,vertical,foldcolumn:1
 
 set scrolloff=5 " keep cursor away from edges of screen
 
+set autowrite " auto write when make...
+
 
 " ------------------------------------------------------------------
 " Functions
@@ -212,7 +214,6 @@ endf
 " build from current dir
 "let &makeprg = '[[ -f Makefile ]] && make || make -C ..'
 func Build()
-    exe "wa"
     "exe "cd %:h"
     silent exe "make"
     silent exe "cw"
@@ -312,7 +313,7 @@ noremap <unique> <silent> <LEADER>f :call ToggleFold()<CR>
 noremap <unique> <F9> :call Build()<CR>
 
 " search current word with Ag in same directory
-noremap <unique> <Leader>ag :Ag! -Uw <C-R>=expand("<cword>")<CR> <C-R>=expand("%:p:h")<CR> <CR>
+"noremap <unique> <Leader>ag :Ag! -Uw <C-R>=expand("<cword>")<CR> <C-R>=expand("%:p:h")<CR> <CR>
 
 " ------------------------------------------------------------------
 " Highlights
@@ -377,13 +378,7 @@ nnoremap <unique> <silent> <LEADER>l ml:execute 'match Search /\%'.line('.').'l/
 nmap <unique> <silent> <C-h> :match<CR>:nohlsearch<CR><Plug>(quickhl-reset)
 
 " sketch
-noremap <unique> <F7> :call ToggleSketch()<CR>
-
-" gtags (need gtags DB)
-noremap <unique> <LEADER>gt :Gtags<SPACE>
-"noremap <unique> <silent> <LEADER>gd :Gtags<CR><CR>
-noremap <unique> <silent> <LEADER>gg :Gtags -g<CR><CR>
-noremap <unique> <silent> <LEADER>gr :Gtags -r<CR><CR>
+"noremap <unique> <F7> :call ToggleSketch()<CR>
 
 " plugin windows mapping
 " <space> to toggle window size, <q> to quit
@@ -413,16 +408,25 @@ let g:ycm_always_populate_location_list = 1
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
-nnoremap <leader>gd :YcmCompleter GoToImprecise<CR>
+autocmd Filetype cpp nnoremap <leader>gd :YcmCompleter GoToImprecise<CR>
 
 " expand region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
-" vim-go: go to definition
-autocmd FileType go nnoremap <leader>gd :GoDef<CR>
+" vim-go
+autocmd FileType go nnoremap <leader>gr :GoReferrers<CR>
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+noremap <unique> <silent> <F7> :GoDecls<CR>
 let g:go_fmt_command = "goimports"
 let g:go_fmt_autosave = 1
+let g:go_list_type = "quickfix"
+let g:go_textobj_include_function_doc = 1
+let g:go_highlight_types = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 0
+let g:go_auto_sameids = 1
+let g:go_auto_type_info = 1
 
 " tern
 autocmd FileType javascript nnoremap <leader>gd :TernDef<CR>
