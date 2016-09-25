@@ -13,6 +13,7 @@
     sm = submodule
     smu = submodule update --init --recursive
 [core]
+    editor = vim
     autocrlf = false
     safecrlf = true
     whitespace = tab-in-indent,tabwidth=4

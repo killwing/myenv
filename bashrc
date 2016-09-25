@@ -50,14 +50,24 @@ shopt -s checkwinsize
 # turn off flow control
 stty -ixon
 
-# PATHs
-export PATH=/usr/local/bin:$HOME/app/bin:$HOME/.myenv/scripts:$PATH
+# paths
+export PATH=/usr/local/bin:$HOME/.myenv/scripts:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export NODE_PATH=/usr/local:/usr/local/lib/node_modules
 
-MAC_BREW_PREFIX=''
 if [ `uname` == 'Darwin' ];then
     MAC_BREW_PREFIX=`brew --prefix`
+
+    # enable programmable completion features (you don't need to enable this,
+    # if it's already enabled in /etc/bash.bashrc and /etc/profile sources /etc/bash.bashrc).
+    # put completion files in /etc/bash_completion.d/
+    if [ -f $MAC_BREW_PREFIX/etc/bash_completion ]; then
+        . $MAC_BREW_PREFIX/etc/bash_completion
+    fi
+
+    # system installed git
+    . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
+    . /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 
     # move to trash, from macworld hints
     function rm() {
@@ -78,28 +88,14 @@ if [ `uname` == 'Darwin' ];then
 
     alias ls='ls -G'
 elif [ `uname` == 'Linux' ];then
+    . /usr/share/git/completion/git-completion.bash
+    . /usr/share/git/completion/git-prompt.sh
+
     alias rm='mv -t ~/.local/share/Trash/files --backup=t'
     alias ls='ls --color=auto'
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f $MAC_BREW_PREFIX/etc/bash_completion ] && ! shopt -oq posix; then
-    . $MAC_BREW_PREFIX/etc/bash_completion
-fi
-
-if [ -f /usr/share/git/completion/git-prompt.sh ]; then
-    . /usr/share/git/completion/git-prompt.sh
-fi
-
 # alias
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias grep='grep -Ins --color=auto --exclude-dir=.git'
-alias fgrep='fgrep -Ins --color=auto'
-alias egrep='egrep -Ins --color=auto'
-
 alias l='ls -hlF'
 alias ll='l -a'
 alias lt='l -tr'
@@ -131,8 +127,25 @@ alias dft='df -Th'
 alias agi='apt-get install'
 alias sc='systemctl'
 alias pj='python -m json.tool'
+alias sf='sift --git --group -n'
 
 alias ris='printf "\033c"' # hard reset
+
+alias git=hub
+
+alias de='docker'
+complete -F _docker de
+alias dm='docker-machine'
+complete -F _docker_machine dm
+alias dc='docker-compose'
+complete -F _doker_compose dc
+function dme {
+    eval `dm env $1`
+}
+
+function lslp {
+    lsof -n -i4TCP:$1 | grep LISTEN
+}
 
 # jump around
 . $HOME/.myenv/vendor/z/z.sh
