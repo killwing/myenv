@@ -119,6 +119,7 @@ alias gi='gvim' # --servername GVIM --remote-silent'
 alias vi='vim'
 alias fu='fuser -vun'
 alias fn='find . -name'
+alias fp='find . -path'
 alias nt='netstat -lnptu'
 alias nc='netcat -vz'
 alias dud='du -hc --max-depth=1'
@@ -132,6 +133,7 @@ alias sf='sift --git --group -n'
 alias ris='printf "\033c"' # hard reset
 
 alias git=hub
+alias kc=kubectl
 
 alias de='docker'
 complete -F _docker de

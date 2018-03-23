@@ -56,6 +56,10 @@ flags = [
 '/usr/include',
 '-isystem',
 '/usr/local/include',
+'-isystem',
+'/Library/Developer/CommandLineTools/usr/include/c++/v1',
+'-I',
+'/Users/kelvin/workspace/mxnet/ps-lite/include',
 ]
 
 

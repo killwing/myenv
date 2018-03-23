@@ -94,3 +94,6 @@
 [submodule "vim/vim/bundle/vim-esformatter"]
 	path = vim/vim/bundle/vim-esformatter
 	url = https://github.com/millermedeiros/vim-esformatter.git
+[submodule "vim/vim/bundle/editorconfig"]
+	path = vim/vim/bundle/editorconfig
+	url = https://github.com/editorconfig/editorconfig-vim.git

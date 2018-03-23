@@ -416,6 +416,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 
 " vim-go
 autocmd FileType go nnoremap <leader>gr :GoReferrers<CR>
+autocmd FileType go nnoremap <leader>i :GoInfo<CR>
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 noremap <unique> <silent> <F7> :GoDecls<CR>
 let g:go_fmt_command = "goimports"
@@ -425,8 +426,8 @@ let g:go_textobj_include_function_doc = 1
 let g:go_highlight_types = 1
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_autosave = 0
-let g:go_auto_sameids = 1
-let g:go_auto_type_info = 1
+let g:go_auto_sameids = 0
+let g:go_auto_type_info = 0
 
 " tern
 autocmd FileType javascript nnoremap <leader>gd :TernDef<CR>
