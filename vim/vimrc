@@ -395,21 +395,6 @@ let g:numbers_exclude = ['tagbar', 'nerdtree']
 " supertab
 let g:SuperTabDefaultCompletionType = '<c-n>'
 
-" ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "usnippets"]
-
-" YouCompleteMe
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_always_populate_location_list = 1
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
-autocmd Filetype cpp nnoremap <leader>gd :YcmCompleter GoToImprecise<CR>
-
 " expand region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
@@ -428,9 +413,3 @@ let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_autosave = 0
 let g:go_auto_sameids = 0
 let g:go_auto_type_info = 0
-
-" tern
-autocmd FileType javascript nnoremap <leader>gd :TernDef<CR>
-
-" cpp11syntaxsupport
-autocmd FileType cpp set syntax=cpp11
