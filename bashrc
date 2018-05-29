@@ -95,6 +95,36 @@ elif [ `uname` == 'Linux' ];then
     alias ls='ls --color=auto'
 fi
 
+# https://brbsix.github.io/2015/11/23/perform-tab-completion-for-aliases-in-bash/
+alias_completion() {
+    # keep global namespace clean
+    local cmd completion
+
+    # determine first word of alias definition
+    # NOTE: This is really dirty. Is it possible to use
+    #       readline's shell-expand-line or alias-expand-line?
+    cmd=$(alias "$1" | sed "s/^alias .*='\(.*\)'/\1/g")
+
+    # determine completion function
+    completion=$(complete -p "$1" 2>/dev/null)
+
+    # run _completion_loader only if necessary
+    [[ -n $completion ]] || {
+
+        # load completion
+        #_completion_loader "$cmd"
+
+        # detect completion
+        completion=$(complete -p "$cmd" 2>/dev/null)
+    }
+
+    # ensure completion was detected
+    [[ -n $completion ]] || return 1
+
+    # configure completion
+    eval "$(sed "s/$cmd\$/$1/" <<<"$completion")"
+}
+
 # alias
 alias l='ls -hlF'
 alias ll='l -a'
@@ -134,16 +164,9 @@ alias ris='printf "\033c"' # hard reset
 
 alias git=hub
 alias kc=kubectl
-
+alias_completion kc
 alias de='docker'
-complete -F _docker de
-alias dm='docker-machine'
-complete -F _docker_machine dm
-alias dc='docker-compose'
-complete -F _doker_compose dc
-function dme {
-    eval `dm env $1`
-}
+alias_completion de
 
 function lslp {
     lsof -n -i4TCP:$1 | grep LISTEN
