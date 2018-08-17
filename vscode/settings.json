@@ -1,0 +1,118 @@
+{
+    "editor.fontFamily": "Source Code Pro",
+    "editor.fontSize": 14,
+    "editor.fontLigatures": true,
+    "editor.formatOnSave": true,
+    "editor.lineNumbers": "relative",
+    "editor.quickSuggestions": {
+        "comments": true,
+        "other": true,
+        "strings": true
+    },
+    "editor.renderWhitespace": "boundary",
+    "editor.tabCompletion": true,
+    "files.associations": {
+        "*.vue": "html"
+    },
+    "files.exclude": {
+        "**/*.pyc": true,
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/CVS": true
+    },
+    "go.addTags": {
+        "options": "",
+        "promptForTags": false,
+        "tags": "json",
+        "transform": "camelcase"
+    },
+    "go.autocompleteUnimportedPackages": true,
+    "go.lintOnSave": "package",
+    "go.vetOnSave": "package",
+    "go.formatTool": "goimports",
+    "go.inferGopath": true,
+    "javascript.validate.enable": false,
+    "standard.autoFixOnSave": true,
+    "standard.options": {
+        "globals": [
+            "Vue",
+            "fetch"
+        ],
+        "ignore": [
+            "node_modules/**"
+        ],
+        "plugins": [
+            "html"
+        ]
+    },
+    "standard.validate": [
+        {
+            "autoFix": true,
+            "language": "html"
+        },
+        "javascript",
+        "javascriptreact"
+    ],
+    "vim.hlsearch": true,
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "after": [],
+            "before": [
+                "g",
+                "p"
+            ],
+            "commands": [
+                {
+                    "args": [],
+                    "command": "editor.action.previewDeclaration"
+                }
+            ]
+        },
+        {
+            "after": [],
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                {
+                    "args": [],
+                    "command": "editor.action.referenceSearch.trigger"
+                }
+            ]
+        },
+        {
+            "after": [],
+            "before": [
+                "g",
+                "i"
+            ],
+            "commands": [
+                {
+                    "args": [],
+                    "command": "editor.action.triggerParameterHints"
+                }
+            ]
+        }
+    ],
+    "vim.searchHighlightColor": "rgba(0, 128, 255, 200)",
+    "vim.statusBarColorControl": true,
+    "vim.useSystemClipboard": true,
+    "vim.sneak": true,
+    "workbench.sideBar.location": "left",
+    "explorer.confirmDragAndDrop": false,
+    "[go]": {},
+    "jupyter.appendResults": false,
+    "python.linting.pylintArgs": [
+        "--ignored-modules=torch"
+    ],
+    "workbench.colorTheme": "Visual Studio Dark",
+    "window.zoomLevel": 0,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f"
+    }
+}

@@ -9,7 +9,7 @@
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
 force_color_prompt=yes
-PS1='\[\e[35;1m\]\h:\w\[\e[01;33m\]$(__git_ps1) \[\e[35;1m\]# \[\e[0m\]'
+PS1='\[\e[35;1m\]\h:\w\[\e[01;33m\]$(__git_ps1)$(kube_ps1) \[\e[35;1m\]# \[\e[0m\]'
 #PROMPT_COMMAND='echo -n "]0;${PWD}"'
 
 GIT_PS1_SHOWDIRTYSTATE=1
@@ -174,6 +174,9 @@ function lslp {
 
 # jump around
 . $HOME/.myenv/vendor/z/z.sh
+
+# kubectl
+. /usr/local/opt/kube-ps1/share/kube-ps1.sh
 
 # source local file
 if [ -e "$HOME/.bash_local" ]; then
