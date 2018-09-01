@@ -16,8 +16,6 @@ packages=(
     "github.com/fatih/motion"
     "github.com/zmb3/gogetdoc"
     "github.com/josharian/impl"
-    # system tools
-    "github.com/svent/sift"
     # debug libraries
     "github.com/davecgh/go-spew/spew"
 )
