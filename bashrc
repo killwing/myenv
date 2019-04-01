@@ -65,10 +65,6 @@ if [ `uname` == 'Darwin' ];then
         . $MAC_BREW_PREFIX/etc/bash_completion
     fi
 
-    # system installed git
-    . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
-    . /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
-
     # move to trash, from macworld hints
     function rm() {
         local path
@@ -162,6 +158,7 @@ alias sf='sift --git --group -n'
 
 alias ris='printf "\033c"' # hard reset
 
+alias denter='screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
 alias git=hub
 alias kc=kubectl
 alias_completion kc

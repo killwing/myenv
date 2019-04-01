@@ -196,21 +196,6 @@ func SyntaxItem()
   echo synIDattr(synID(line("."), col("."), 1), "name")
 endf
 
-" clearcase diff with current
-func CtDiff()
-    let f = system("cleartool ls -short " . fnamemodify(bufname('%'), ':p'))
-    echo 'Current version (right): ' . f
-    call inputsave()
-    let v = input("Enter a version (default:LATEST) to diff (left): ")
-    call inputrestore()
-    let leftv = "LATEST"
-    if !empty(v)
-        let leftv = v
-    endif
-    let f = substitute(f, '/\w\+\n$', "/" . leftv, "")
-    exe "diffsplit " . f
-endf
-
 " build from current dir
 "let &makeprg = '[[ -f Makefile ]] && make || make -C ..'
 func Build()
@@ -319,11 +304,6 @@ noremap <unique> <F9> :call Build()<CR>
 " Highlights
 " ------------------------------------------------------------------
 
-hi DiffAdd ctermfg=black ctermbg=green guifg=black guibg=green
-hi DiffDelete ctermfg=gray ctermbg=black guifg=gray guibg=black
-hi DiffChange ctermfg=black ctermbg=yellow guifg=black guibg=yellow
-hi DiffText ctermfg=black ctermbg=red guifg=black guibg=red
-
 hi Folded ctermfg=gray guibg=gray
 "hi FoldColumn ctermfg=gray guibg=gray
 
@@ -332,18 +312,6 @@ hi ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-
-
-" ------------------------------------------------------------------
-" Commands
-" ------------------------------------------------------------------
-
-" clearcase
-command CO silent exe '!cleartool co -nc -unr ' . fnamemodify(bufname('%'), ':p') | exe 'redraw!'
-command CI silent exe '!cleartool ci -nc ' . fnamemodify(bufname('%'), ':p') | exe 'redraw!'
-command UC silent exe '!cleartool unco -rm ' . fnamemodify(bufname('%'), ':p') | exe 'redraw!'
-command SCP exe '!scp ' . fnamemodify(bufname('%'), ':h') . '/.libs/*.so root@desthost:/home'
-command DIFF call CtDiff()
 
 
 " ------------------------------------------------------------------

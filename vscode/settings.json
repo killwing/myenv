@@ -1,8 +1,11 @@
 {
+    "[go]": {},
+    "breadcrumbs.enabled": true,
     "editor.fontFamily": "Source Code Pro",
-    "editor.fontSize": 14,
     "editor.fontLigatures": true,
+    "editor.fontSize": 14,
     "editor.formatOnSave": true,
+    "editor.formatOnSaveTimeout": 10000,
     "editor.lineNumbers": "relative",
     "editor.quickSuggestions": {
         "comments": true,
@@ -10,8 +13,16 @@
         "strings": true
     },
     "editor.renderWhitespace": "boundary",
-    "editor.tabCompletion": true,
+    "editor.tabCompletion": "on",
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "vue"
+    ],
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
     "files.associations": {
+        "*.md.html": "markdown",
         "*.vue": "html"
     },
     "files.exclude": {
@@ -22,6 +33,9 @@
         "**/.svn": true,
         "**/CVS": true
     },
+    "gitlens.codeLens.enabled": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.enabled": false,
     "go.addTags": {
         "options": "",
         "promptForTags": false,
@@ -29,11 +43,16 @@
         "transform": "camelcase"
     },
     "go.autocompleteUnimportedPackages": true,
-    "go.lintOnSave": "package",
-    "go.vetOnSave": "package",
     "go.formatTool": "goimports",
     "go.inferGopath": true,
+    "go.lintOnSave": "package",
+    "go.vetOnSave": "package",
+    "javascript.format.enable": false,
     "javascript.validate.enable": false,
+    "jupyter.appendResults": false,
+    "python.linting.pylintArgs": [
+        "--ignored-modules=torch"
+    ],
     "standard.autoFixOnSave": true,
     "standard.options": {
         "globals": [
@@ -47,16 +66,14 @@
             "html"
         ]
     },
+    "standard.run": "onSave",
     "standard.validate": [
-        {
-            "autoFix": true,
-            "language": "html"
-        },
         "javascript",
         "javascriptreact"
     ],
+    "vetur.format.defaultFormatter.js": "prettier-eslint",
     "vim.hlsearch": true,
-    "vim.otherModesKeyBindingsNonRecursive": [
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
             "after": [],
             "before": [
@@ -98,21 +115,17 @@
         }
     ],
     "vim.searchHighlightColor": "rgba(0, 128, 255, 200)",
+    "vim.sneak": true,
     "vim.statusBarColorControl": true,
     "vim.useSystemClipboard": true,
-    "vim.sneak": true,
-    "workbench.sideBar.location": "left",
-    "explorer.confirmDragAndDrop": false,
-    "[go]": {},
-    "jupyter.appendResults": false,
-    "python.linting.pylintArgs": [
-        "--ignored-modules=torch"
-    ],
-    "workbench.colorTheme": "Visual Studio Dark",
+    "vsicons.dontShowNewVersionMessage": true,
     "window.zoomLevel": 0,
     "workbench.colorCustomizations": {
         "statusBar.background": "#005f5f",
         "statusBar.noFolderBackground": "#005f5f",
         "statusBar.debuggingBackground": "#005f5f"
-    }
+    },
+    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.sideBar.location": "left"
 }
