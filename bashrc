@@ -158,7 +158,7 @@ alias sf='sift --git --group -n'
 
 alias ris='printf "\033c"' # hard reset
 
-alias denter='screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
+alias denter='screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty'
 alias git=hub
 alias kc=kubectl
 alias_completion kc

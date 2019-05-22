@@ -65,9 +65,6 @@ autocmd BufReadPost *
 " hanlde file ext md.html
 autocmd BufNewFile,BufRead *.md.html set ft=markdown
 
-" autoformat js when save
-autocmd BufWrite *.js :Esformatter
-
 " ------------------------------------------------------------------
 " Options
 " ------------------------------------------------------------------

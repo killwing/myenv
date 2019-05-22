@@ -12,6 +12,8 @@
     br = branch
     sm = submodule
     smu = submodule update --init --recursive
+    df = diff
+    dc = diff --cached
 [core]
     editor = vim
     autocrlf = false
