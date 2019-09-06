@@ -40,15 +40,6 @@
 [submodule "vim/vim/bundle/ag"]
 	path = vim/vim/bundle/ag
 	url = http://github.com/rking/ag.vim.git
-[submodule "vendor/z"]
-	path = vendor/z
-	url = https://github.com/rupa/z.git
-[submodule "vendor/Boost-Pretty-Printer"]
-	path = vendor/Boost-Pretty-Printer
-	url = http://github.com/ruediger/Boost-Pretty-Printer.git
-[submodule "vendor/icdiff"]
-	path = vendor/icdiff
-	url = https://github.com/jeffkaufman/icdiff.git
 [submodule "vim/vim/bundle/expand-region"]
 	path = vim/vim/bundle/expand-region
 	url = https://github.com/terryma/vim-expand-region.git

@@ -9,6 +9,3 @@ ln -sfv  $repo/bashrc                $HOME/.bashrc
 ln -sfv  $repo/inputrc               $HOME/.inputrc
 ln -sfv  $repo/vim/vimrc             $HOME/.vimrc
 ln -sfnv $repo/vim/vim               $HOME/.vim
-ln -sfv  $repo/gdbinit               $HOME/.gdbinit
-ln -sfv  $repo/ycm_extra_conf.py     $HOME/.ycm_extra_conf.py
-ln -sfv  $repo/esformatter           $HOME/.esformatter

@@ -84,8 +84,8 @@ if [ `uname` == 'Darwin' ];then
 
     alias ls='ls -G'
 elif [ `uname` == 'Linux' ];then
-    . /usr/share/git/completion/git-completion.bash
-    . /usr/share/git/completion/git-prompt.sh
+    . $HOME/bin/git-completion.bash
+    . $HOME/bin/git-prompt.sh
 
     alias rm='mv -t ~/.local/share/Trash/files --backup=t'
     alias ls='ls --color=auto'
@@ -159,7 +159,7 @@ alias sf='sift --git --group -n'
 alias ris='printf "\033c"' # hard reset
 
 alias denter='screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty'
-alias git=hub
+#alias git=hub
 alias kc=kubectl
 alias_completion kc
 alias de='docker'
@@ -170,7 +170,7 @@ function lslp {
 }
 
 # jump around
-. $HOME/.myenv/vendor/z/z.sh
+. $HOME/bin/z.sh
 
 # kubectl
 . /usr/local/opt/kube-ps1/share/kube-ps1.sh
