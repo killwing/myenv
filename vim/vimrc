@@ -14,16 +14,6 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" Second, init vim-pathogen
-runtime bundle/pathogen/autoload/pathogen.vim
-
-let g:pathogen_disabled = []
-if v:version < '703.584'
-    call add(g:pathogen_disabled, 'YouCompleteMe')
-endif
-call pathogen#infect()
-
-
 " Switch syntax highlighting on.
 syntax on
 
