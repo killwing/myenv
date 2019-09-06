@@ -51,7 +51,7 @@ shopt -s checkwinsize
 stty -ixon
 
 # paths
-export PATH=/usr/local/bin:$HOME/.myenv/scripts:$PATH
+export PATH=/usr/local/bin:$HOME/bin:$HOME/.myenv/scripts:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export NODE_PATH=/usr/local:/usr/local/lib/node_modules
 
@@ -159,7 +159,7 @@ alias sf='sift --git --group -n'
 alias ris='printf "\033c"' # hard reset
 
 alias denter='screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty'
-#alias git=hub
+alias git=hub
 alias kc=kubectl
 alias_completion kc
 alias de='docker'

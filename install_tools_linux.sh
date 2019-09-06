@@ -7,6 +7,7 @@ if [ ! -d $HOME/bin ]; then
 fi
 cd $HOME/bin
 
+# git completion
 if [ -f /usr/share/git/completion/git-completion.bash ]; then
     ln -sfv /usr/share/git/completion/git-completion.bash ./git-completion.bash
 elif [ -f /usr/share/bash-completion/completions/git ]; then
@@ -15,12 +16,25 @@ else
     curl -OL https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 fi
 
+# git prompt
 if [ -f /usr/share/git/completion/git-prompt.sh ]; then
     ln -sfv /usr/share/git/completion/git-prompt.sh ./git-prompt.sh
 else
     curl -OL https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 fi
 
+# z
 curl -OL https://raw.githubusercontent.com/rupa/z/master/z.sh
+
+# hub
+curl -L -o hub.tgz https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz && tar xzvf hub.tgz && rm hub.tgz
+cp hub-linux-amd64-2.12.3/bin/hub ./hub && \rm -rf ./hub-linux-amd64-2.12.3
+
+# sift
+curl -L -o sift.tgz https://sift-tool.org/downloads/sift/sift_0.9.0_linux_amd64.tar.gz && tar xzvf sift.tgz && rm sift.tgz
+cp sift_0.9.0_linux_amd64/sift ./sift && \rm -rf ./sift_0.9.0_linux_amd64
+
+# fd
+curl -L -o fd.deb https://github.com/sharkdp/fd/releases/download/v7.3.0/fd_7.3.0_amd64.deb && dpkg -i fd.deb && rm fd.deb
 
 cd -
