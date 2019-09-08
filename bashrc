@@ -173,7 +173,11 @@ function lslp {
 . $HOME/bin/z.sh
 
 # kubectl
-. /usr/local/opt/kube-ps1/share/kube-ps1.sh
+. $HOME/bin/kube-ps1.sh
+
+# fzf
+. $HOME/bin/.fzf/shell/completion.bash
+. $HOME/bin/.fzf/shell/key-bindings.bash
 
 # source local file
 if [ -e "$HOME/.bash_local" ]; then
