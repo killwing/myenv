@@ -48,4 +48,7 @@ curl -OL https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh
 git clone --depth 1 https://github.com/junegunn/fzf.git .fzf && .fzf/install --bin
 ln -sfv .fzf/bin/fzf ./fzf
 
+# bat
+curl -L -o bat.deb https://github.com/sharkdp/bat/releases/download/v0.12.1/bat_0.12.1_amd64.deb && dpkg -i bat.deb && rm bat.deb
+
 cd -

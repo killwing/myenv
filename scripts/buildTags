@@ -1,5 +1,0 @@
-#!/bin/bash
-export GTAGSFORCECPP=""
-gtags
-ctags -R --language-force=c++ --c++-kinds=+p --fields=+aiS --extra=+q . /usr/include/c++/
-
