@@ -9,15 +9,5 @@
         "key": "cmd+down",
         "command": "-selectNextSuggestion",
         "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-    },
-    {
-        "key": "j",
-        "command": "cursorDown",
-        "when": "editorTextFocus && vim.active && vim.mode == 'Normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
-    },
-    {
-        "key": "k",
-        "command": "cursorUp",
-        "when": "editorTextFocus && vim.active && vim.mode == 'Normal'&& !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
     }
 ]

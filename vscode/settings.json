@@ -1,6 +1,9 @@
 {
     "[go]": {},
     "breadcrumbs.enabled": true,
+    "code-runner.executorMap": {
+        "python": "python3 -u"
+    },
     "editor.fontFamily": "Source Code Pro",
     "editor.fontLigatures": true,
     "editor.fontSize": 14,
@@ -21,16 +24,17 @@
     ],
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
+    "extensions.ignoreRecommendations": false,
     "files.associations": {
         "*.md.html": "markdown",
         "*.vue": "html"
     },
     "files.exclude": {
-        "**/*.pyc": true,
         "**/.DS_Store": true,
         "**/.git": true,
         "**/.hg": true,
         "**/.svn": true,
+        "**/*.pyc": true,
         "**/CVS": true
     },
     "gitlens.codeLens.enabled": false,
@@ -40,7 +44,7 @@
         "options": "",
         "promptForTags": false,
         "tags": "json",
-        "transform": "camelcase"
+        "transform": "snakecase"
     },
     "go.autocompleteUnimportedPackages": true,
     "go.formatTool": "goimports",
@@ -49,7 +53,6 @@
     "go.vetOnSave": "package",
     "javascript.format.enable": false,
     "javascript.validate.enable": false,
-    "jupyter.appendResults": false,
     "python.linting.pylintArgs": [
         "--ignored-modules=torch"
     ],
@@ -116,16 +119,18 @@
     ],
     "vim.searchHighlightColor": "rgba(0, 128, 255, 200)",
     "vim.sneak": true,
-    "vim.statusBarColorControl": true,
+    "vim.statusBarColorControl": false,
     "vim.useSystemClipboard": true,
+    "vscode_custom_css.imports": [
+        "file:///Users/kelvin/.myenv/vscode/synthwave84.css"
+    ],
     "vsicons.dontShowNewVersionMessage": true,
     "window.zoomLevel": 0,
     "workbench.colorCustomizations": {
         "statusBar.background": "#005f5f",
-        "statusBar.noFolderBackground": "#005f5f",
-        "statusBar.debuggingBackground": "#005f5f"
+        "statusBar.debuggingBackground": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f"
     },
     "workbench.colorTheme": "Visual Studio Dark",
-    "workbench.iconTheme": "vscode-icons",
     "workbench.sideBar.location": "left"
 }
