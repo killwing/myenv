@@ -15,6 +15,7 @@
     df = diff
     dc = diff --cached
 [core]
+    pager = less -FRSX
     editor = vim
     autocrlf = false
     safecrlf = true
