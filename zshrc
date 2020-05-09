@@ -59,7 +59,7 @@ ZSH_THEME="kw"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git kube-ps1 autojump
+  git kube-ps1 autojump zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -118,6 +118,13 @@ function lslp {
     lsof -n -i4TCP:$1 | grep LISTEN
 }
 
+bindkey '^[^[[C' forward-word
+bindkey '^[^[[D' backward-word
+bindkey -r '^[[3~'
+bindkey '^[[3~' kill-word
+bindkey -M menuselect '^M' .accept-line
+bindkey '^[^M' autosuggest-execute
+
 export PATH=/usr/local/bin:$HOME/bin:$HOME/.myenv/scripts:$HOME/go/bin:$HOME/.krew/bin:$PATH
 
 alias -s go='go run'
@@ -152,3 +159,7 @@ alias kc=kubectl
 alias de=docker
 
 kubeon
+
+if [ -f ~/.zsh_local ]; then
+    source ~/.zsh_local
+fi

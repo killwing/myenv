@@ -51,4 +51,7 @@ ln -sfv .fzf/bin/fzf ./fzf
 # bat
 curl -L -o bat.deb https://github.com/sharkdp/bat/releases/download/v0.12.1/bat_0.12.1_amd64.deb && dpkg -i bat.deb && rm bat.deb
 
+# zsh autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
 cd -
