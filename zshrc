@@ -124,6 +124,15 @@ bindkey -r '^[[3~'
 bindkey '^[[3~' kill-word
 bindkey -M menuselect '^M' .accept-line
 bindkey '^[^M' autosuggest-execute
+# shift-tab : go backward in menu (invert of tab)
+bindkey '^[[Z' reverse-menu-complete
+# alt-x : insert last command result
+zmodload -i zsh/parameter
+insert-last-command-output() {
+  LBUFFER+="$(eval $history[$((HISTCMD-1))])"
+}
+zle -N insert-last-command-output
+bindkey '^[x' insert-last-command-output
 
 export PATH=/usr/local/bin:$HOME/bin:$HOME/.myenv/scripts:$HOME/go/bin:$HOME/.krew/bin:$PATH
 
