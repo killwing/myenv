@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/kelvin/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -118,14 +118,15 @@ function lslp {
     lsof -n -i4TCP:$1 | grep LISTEN
 }
 
-bindkey '^[^[[C' forward-word
-bindkey '^[^[[D' backward-word
-bindkey -r '^[[3~'
-bindkey '^[[3~' kill-word
-bindkey -M menuselect '^M' .accept-line
-bindkey '^[^M' autosuggest-execute
-# shift-tab : go backward in menu (invert of tab)
-bindkey '^[[Z' reverse-menu-complete
+# tip: use `showkey -a` to show the keycode
+# ctrl
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
+bindkey '^H' backward-kill-word
+bindkey '^[[3;5~' kill-word
+bindkey '^J' autosuggest-execute
+
+# alt
 # alt-x : insert last command result
 zmodload -i zsh/parameter
 insert-last-command-output() {
@@ -133,6 +134,12 @@ insert-last-command-output() {
 }
 zle -N insert-last-command-output
 bindkey '^[x' insert-last-command-output
+
+# shift
+# shift-tab : go backward in menu (invert of tab)
+bindkey '^[[Z' reverse-menu-complete
+
+bindkey -M menuselect '^M' .accept-line
 
 export PATH=/usr/local/bin:$HOME/bin:$HOME/.myenv/scripts:$HOME/go/bin:$HOME/.krew/bin:$PATH
 
