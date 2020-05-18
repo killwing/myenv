@@ -104,7 +104,7 @@ if [ `uname` = 'Darwin' ]; then
                 local dst=${path##*/}
                 # append the time if necessary
                 while [ -e ~/.Trash/"$dst" ]; do
-                    dst="$dst "$(date +%H-%M-%S)
+                    dst="$dst "$(/bin/date +%H-%M-%S)
                 done
                 /bin/mv "$path" ~/.Trash/"$dst"
             fi
@@ -118,13 +118,18 @@ function lslp {
     lsof -n -i4TCP:$1 | grep LISTEN
 }
 
-# tip: use `showkey -a` to show the keycode
 # ctrl
+# tip: use `xxd` / `cat` / `showkey -a` to show the keycode
+# in iTerm2:
+# ctrl+Bs: ^H Backspace
+# ctrl+Del: Esc+[3;5~
+# ctrl+Enter: Esc+[[CE
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
 bindkey '^J' autosuggest-execute
+bindkey '^[[[CE' autosuggest-execute
 
 # alt
 # alt-x : insert last command result
