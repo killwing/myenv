@@ -46,3 +46,6 @@
 [submodule "vim/vim/pack/plugins/start/vim-sneak"]
 	path = vim/vim/pack/plugins/start/vim-sneak
 	url = https://github.com/justinmk/vim-sneak
+[submodule "vim/vim/pack/plugins/start/commentary"]
+	path = vim/vim/pack/plugins/start/commentary
+	url = https://tpope.io/vim/commentary.git
