@@ -130,6 +130,7 @@ bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
 bindkey '^J' autosuggest-execute
 bindkey '^[[[CE' autosuggest-execute
+bindkey \^U backward-kill-line # bash-like
 
 # alt
 # alt-x : insert last command result
