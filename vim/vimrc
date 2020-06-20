@@ -359,7 +359,7 @@ autocmd FileType go nnoremap <leader>gr :GoReferrers<CR>
 autocmd FileType go nnoremap <leader>i :GoInfo<CR>
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 noremap <unique> <silent> <F7> :GoDecls<CR>
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "goreturns"
 let g:go_fmt_autosave = 1
 let g:go_list_type = "quickfix"
 let g:go_textobj_include_function_doc = 1

@@ -47,10 +47,11 @@
         "transform": "snakecase"
     },
     "go.autocompleteUnimportedPackages": true,
-    "go.formatTool": "goimports",
-    "go.inferGopath": true,
+    "go.formatTool": "goreturns",
+    "go.inferGopath": false,
     "go.lintOnSave": "package",
     "go.vetOnSave": "package",
+    "go.useLanguageServer": true,
     "javascript.format.enable": false,
     "javascript.validate.enable": false,
     "python.linting.pylintArgs": [
@@ -94,7 +95,7 @@
             "after": [],
             "before": [
                 "g",
-                "r"
+                "s"
             ],
             "commands": [
                 {
@@ -115,12 +116,22 @@
                     "command": "editor.action.triggerParameterHints"
                 }
             ]
+        },
+        {
+            "after": [
+                "y",
+                "$"
+            ],
+            "before": [
+                "Y"
+            ]
         }
     ],
     "vim.searchHighlightColor": "rgba(0, 128, 255, 200)",
     "vim.sneak": true,
-    "vim.statusBarColorControl": false,
+    "vim.statusBarColorControl": true,
     "vim.useSystemClipboard": true,
+    "vim.replaceWithRegister": true,
     "vscode_custom_css.imports": [
         "file:///Users/kelvin/.myenv/vscode/synthwave84.css"
     ],
