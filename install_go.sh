@@ -21,8 +21,7 @@ packages=(
     "github.com/sqs/goreturns"
     "golang.org/x/lint/golint"
     "golang.org/x/tools/gopls"
-    # common tools
-    "github.com/svent/sift"
+    "github.com/jstemmer/gotags"
 )
 
 for pkg in ${packages[@]}; do

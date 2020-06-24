@@ -59,7 +59,7 @@ ZSH_THEME="kw"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git kube-ps1 autojump zsh-autosuggestions
+  git kube-ps1 autojump zsh-autosuggestions kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -92,6 +92,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+unsetopt share_history
 
 if [ `uname` = 'Darwin' ]; then
     # move to trash, from macworld hints
@@ -177,7 +179,6 @@ alias sf='sift --git --group -n'
 alias ris='printf "\033c"' # hard reset
 
 alias denter='screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty'
-alias kc=kubectl
 alias de=docker
 
 kubeon
