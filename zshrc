@@ -149,7 +149,7 @@ bindkey '^[[Z' reverse-menu-complete
 
 bindkey -M menuselect '^M' .accept-line
 
-export PATH=/usr/local/bin:$HOME/bin:$HOME/.myenv/scripts:$HOME/go/bin:$HOME/.krew/bin:$PATH
+export PATH=/usr/local/bin:$HOME/bin:$HOME/go/bin:$HOME/.myenv/scripts:$HOME/.krew/bin:$PATH
 
 alias -s go='go run'
 alias -s gz='tar xzvf'
@@ -178,10 +178,14 @@ alias pj='python -m json.tool'
 alias sf='sift --git --group -n'
 alias ris='printf "\033c"' # hard reset
 
-alias denter='screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty'
-alias de=docker
+alias kc=kubectl
+alias cl=colima
+alias cn='colima nerdctl --'
+#source <(kubectl completion zsh)
 
 kubeon
+
+KUBE_PS1_SYMBOL_DEFAULT='\u2638\ufe0f '
 
 if [ -f ~/.zsh_local ]; then
     source ~/.zsh_local

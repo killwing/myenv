@@ -14,8 +14,10 @@
     smu = submodule update --init --recursive
     df = diff
     dc = diff --cached
+    rs = restore
+    sw = switch
 [core]
-    pager = less -FRSX
+	pager = git-split-diffs --color | less -RFX
     editor = vim
     autocrlf = false
     safecrlf = true
@@ -29,3 +31,5 @@
     required = true
 [pull]
     rebase = true
+[split-diffs]
+	theme-name = github-light

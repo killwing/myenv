@@ -1,81 +1,65 @@
 {
-    "[go]": {},
     "breadcrumbs.enabled": true,
-    "code-runner.executorMap": {
-        "python": "python3 -u"
-    },
-    "editor.fontFamily": "Source Code Pro",
+    "editor.fontFamily": "JetBrains Mono",
     "editor.fontLigatures": true,
-    "editor.fontSize": 14,
+    "editor.fontSize": 13,
     "editor.formatOnSave": true,
-    "editor.formatOnSaveTimeout": 10000,
     "editor.lineNumbers": "relative",
     "editor.quickSuggestions": {
         "comments": true,
         "other": true,
         "strings": true
     },
-    "editor.renderWhitespace": "boundary",
+    "editor.suggestSelection": "first",
     "editor.tabCompletion": "on",
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "vue"
-    ],
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "support.function",
+                "settings": {
+                    "foreground": "#a9b7c6"
+                }
+            },
+            {
+                "scope": "storage.type",
+                "settings": {
+                    "foreground": "#e79c5e"
+                }
+            }
+        ]
+    },
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-    "extensions.ignoreRecommendations": false,
+    "extensions.ignoreRecommendations": true,
     "files.associations": {
         "*.md.html": "markdown",
         "*.vue": "html"
     },
     "files.exclude": {
+        "**/.classpath": true,
         "**/.DS_Store": true,
+        "**/.factorypath": true,
         "**/.git": true,
         "**/.hg": true,
+        "**/.project": true,
+        "**/.settings": true,
         "**/.svn": true,
         "**/*.pyc": true,
         "**/CVS": true
     },
-    "gitlens.codeLens.enabled": false,
-    "gitlens.currentLine.enabled": false,
-    "gitlens.hovers.enabled": false,
     "go.addTags": {
         "options": "",
         "promptForTags": false,
         "tags": "json",
-        "transform": "snakecase"
+        "transform": "camelcase"
     },
     "go.autocompleteUnimportedPackages": true,
     "go.formatTool": "goreturns",
     "go.inferGopath": false,
     "go.lintOnSave": "package",
-    "go.vetOnSave": "package",
     "go.useLanguageServer": true,
-    "javascript.format.enable": false,
-    "javascript.validate.enable": false,
-    "python.linting.pylintArgs": [
-        "--ignored-modules=torch"
-    ],
-    "standard.autoFixOnSave": true,
-    "standard.options": {
-        "globals": [
-            "Vue",
-            "fetch"
-        ],
-        "ignore": [
-            "node_modules/**"
-        ],
-        "plugins": [
-            "html"
-        ]
-    },
-    "standard.run": "onSave",
-    "standard.validate": [
-        "javascript",
-        "javascriptreact"
-    ],
-    "vetur.format.defaultFormatter.js": "prettier-eslint",
+    "go.vetOnSave": "package",
+    "tabnine.experimentalAutoImports": true,
     "vim.hlsearch": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -127,21 +111,17 @@
             ]
         }
     ],
+    "vim.replaceWithRegister": true,
     "vim.searchHighlightColor": "rgba(0, 128, 255, 200)",
     "vim.sneak": true,
     "vim.statusBarColorControl": true,
     "vim.useSystemClipboard": true,
-    "vim.replaceWithRegister": true,
-    "vscode_custom_css.imports": [
-        "file:///Users/kelvin/.myenv/vscode/synthwave84.css"
-    ],
-    "vsicons.dontShowNewVersionMessage": true,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "workbench.colorCustomizations": {
         "statusBar.background": "#005f5f",
         "statusBar.debuggingBackground": "#005f5f",
         "statusBar.noFolderBackground": "#005f5f"
     },
-    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.colorTheme": "Darcula Extra",
     "workbench.sideBar.location": "left"
 }
