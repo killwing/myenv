@@ -1,9 +1,15 @@
 " ==================================================================
-" To use it, copy it to
+" For Vim, copy it to
 "     for Unix and OS/2:  ~/.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "
-"  If you don't understand a setting in here, just type :h 'setting'.
+" For NeoVim
+" - Use `$XDG_CONFIG_HOME/nvim/init.vim` instead of `.vimrc` for your |config|.
+" - Use `$XDG_CONFIG_HOME/nvim` instead of `.vim` to store configuration files.
+"
+" help :h 'setting'
+" check :set xxx?
+" reverse :set xxx!
 " ==================================================================
 
 " ------------------------------------------------------------------
@@ -58,9 +64,9 @@ autocmd BufNewFile,BufRead *.md.html set ft=markdown
 " ------------------------------------------------------------------
 " Options
 " ------------------------------------------------------------------
+set backspace=indent,eol,start " Make backspace behave in a sane manner, allow backspacing over everything in insert mode.
 
-" Make backspace behave in a sane manner, allow backspacing over everything in insert mode.
-set backspace=indent,eol,start
+set belloff=all
 
 set autoindent
 set smartindent
@@ -84,8 +90,11 @@ set autoread " auto read same-file change
 
 set showmatch " show matching paren, actually shows
 set matchtime=0 " 0 second to show the matching paren ( much faster )
-set number " Show LineNumber
-set scrolloff=0 " minimal number of screen lines to keep above and below the cursor
+set number " show lineNumber
+set scrolloff=5 " keep cursor away from edges of screen
+set sidescrolloff=10
+set sidescroll=1
+
 set nowrap " I don't like wrap, cause in split window mode, it feel strange
 
 set wildmenu " turn on wild menu, try typing :h and press <Tab>
@@ -98,7 +107,7 @@ set ruler " show the cursor position all the time
 set showcmd " display incomplete commands
 set showmode " display edit mode
 set cmdheight=1 " 1 screen lines to use for the command-line
-set hid " allow to change buffer without saving
+set hidden " allow to change buffer without saving
 set shortmess=atIO " shortens messages to avoid 'press a key' prompt
 set lazyredraw " do not redraw while executing macros (much faster)
 set display+=lastline " for easy browse last line with wrap text
@@ -121,27 +130,28 @@ set laststatus=2
 set whichwrap=b,s,<,>,[,]
 set formatoptions=mB
 
-" auto detect file formats
-set fileformats=unix,dos,mac
+set fileformats=unix,dos,mac " auto detect file formats
 
 set encoding=utf-8
-" auto detect file encodings
-set fileencodings=ucs-bom,utf-8,chinese,japanese
+set fileencodings=ucs-bom,utf-8,chinese,japanese " auto detect file encodings
 
 set complete=.,w,b,u,i " default is '.,w,b,u,t,i', tags match is not from the word start, disable it
 set completeopt=menu
 
-set nf= " increase/decrease number format to decimal (default is octal)
-set ve=block " In Visual Block Mode, cursor can be positioned where there is no actual character
+set nrformats= " increase/decrease number format to decimal (default is octal)
+set virtualedit=block " In Visual Block Mode, cursor can be positioned where there is no actual character
 set mouse=a " use mouse
 set nomousehide " do not hide mouse
 
 set diffopt=filler,vertical,foldcolumn:1
 
-set scrolloff=5 " keep cursor away from edges of screen
-
 set autowrite " auto write when make...
 
+set nojoinspaces " join line with one space after .
+
+set ttyfast
+
+set nostartofline " keep column position when G etc.
 
 " ------------------------------------------------------------------
 " Functions
@@ -253,6 +263,9 @@ nnoremap <unique> <LEADER>a ggvG$
 " Yanking
 nnoremap Y y$
 
+" clear highlight
+nnoremap <C-L> <Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>
+
 " Edit another file in the same directory as the current file
 if has("unix")
     noremap <unique> <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -353,6 +366,9 @@ let g:SuperTabDefaultCompletionType = '<c-n>'
 " expand region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
+" sneak 'ignorecase' and 'smartcase'
+let g:sneak#use_ic_scs = 1
 
 " vim-go
 autocmd FileType go nnoremap <leader>gr :GoReferrers<CR>

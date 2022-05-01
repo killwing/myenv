@@ -11,3 +11,4 @@ ln -sfv  $repo/kw.zsh-theme          $HOME/.oh-my-zsh/custom/themes/kw.zsh-theme
 ln -sfv  $repo/inputrc               $HOME/.inputrc
 ln -sfv  $repo/vim/vimrc             $HOME/.vimrc
 ln -sfnv $repo/vim/vim               $HOME/.vim
+ln -sfnv $repo/vim/nvim              $HOME/.config/nvim
