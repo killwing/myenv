@@ -24,7 +24,7 @@ ZSH_THEME="kw"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -117,7 +117,7 @@ elif [ `uname` = 'Linux' ]; then
 fi
 
 function lslp {
-    lsof -n -i4TCP:$1 | grep LISTEN
+    lsof -nP -i4TCP:$1 | grep LISTEN
 }
 
 # ctrl
@@ -149,8 +149,6 @@ bindkey '^[[Z' reverse-menu-complete
 
 bindkey -M menuselect '^M' .accept-line
 
-export PATH=/usr/local/bin:$HOME/bin:$HOME/go/bin:$HOME/.myenv/scripts:$HOME/.krew/bin:$PATH
-
 alias -s go='go run'
 alias -s gz='tar xzvf'
 alias -s tgz='tar xzvf'
@@ -168,9 +166,10 @@ alias fu='fuser -vun'
 alias fn='find . -name'
 alias fp='find . -path'
 alias nt='netstat -lnptu'
-alias nc='netcat -vz'
+#alias nc='netcat -vz'
 alias dud='du -hc --max-depth=1'
 alias dft='df -Th'
+alias cat='bat -p'
 
 alias agi='apt-get install'
 alias sc='systemctl'
@@ -180,13 +179,17 @@ alias ris='printf "\033c"' # hard reset
 
 alias kc=kubectl
 alias cl=colima
-alias cn='colima nerdctl --'
+alias nc='colima nerdctl --'
+alias http='http -s monokai'
+alias pc='proxychains4'
+alias npm='pnpm'
 #source <(kubectl completion zsh)
 
 kubeon
 
 KUBE_PS1_SYMBOL_DEFAULT='\u2638\ufe0f '
 
-if [ -f ~/.zsh_local ]; then
-    source ~/.zsh_local
-fi
+# set other local envs in .zshenv
+export PATH=/usr/local/bin:$HOME/bin:$HOME/go/bin:$HOME/.myenv/scripts:$HOME/.krew/bin:$PATH
+export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=true
+export MACOSX_DEPLOYMENT_TARGET=12.0

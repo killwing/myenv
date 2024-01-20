@@ -384,3 +384,8 @@ let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_autosave = 0
 let g:go_auto_sameids = 0
 let g:go_auto_type_info = 0
+
+" vscode neovim, others: https://github.com/vscode-neovim/vscode-neovim#vscode-specific-bindings
+nnoremap gi <Cmd>call VSCodeNotify('editor.action.goToImplementation')<CR>
+nnoremap gs <Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>
+

@@ -4,7 +4,8 @@
 [color]
     ui = true
 [alias]
-    lg = log --graph --oneline --all --decorate
+    lg = log --graph --pretty='format:%C(auto)%h %C(cyan)%ar %C(auto)%d %C(magenta)%an %C(auto)%s'
+    lga = log --graph --all --pretty='format:%C(auto)%h %C(cyan)%ar %C(auto)%d %C(magenta)%an %C(auto)%s'
     st = status
     co = checkout
     ci = commit
@@ -14,13 +15,14 @@
     smu = submodule update --init --recursive
     df = diff
     dc = diff --cached
+    dt = diff --no-index
     rs = restore
     sw = switch
 [core]
-	pager = git-split-diffs --color | less -RFX
+    pager = git-split-diffs --color | less -RFX
     editor = vim
-    autocrlf = false
-    safecrlf = true
+	autocrlf = false
+	safecrlf = false
     whitespace = tab-in-indent,tabwidth=4
 [push]
     default = simple
@@ -32,4 +34,8 @@
 [pull]
     rebase = true
 [split-diffs]
-	theme-name = github-light
+    theme-name = github-light
+[branch]
+	autosetuprebase = always
+[init]
+	defaultBranch = main
