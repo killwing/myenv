@@ -47,5 +47,8 @@ curl -OL https://github.com/kubernetes-sigs/krew/releases/download/v0.3.4/krew.t
 # apt
 apt install autojump jq
 
+# git-split-diffs
+npm install -g git-split-diffs
+
 cd -
 
