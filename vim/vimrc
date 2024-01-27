@@ -64,95 +64,69 @@ autocmd BufNewFile,BufRead *.md.html set ft=markdown
 " ------------------------------------------------------------------
 " Options
 " ------------------------------------------------------------------
-set backspace=indent,eol,start " Make backspace behave in a sane manner, allow backspacing over everything in insert mode.
-
-set belloff=all
-
 set autoindent
-set smartindent
-
-set shiftwidth=4 " set indent to 4 spaces
-set tabstop=4 " set tabstop to 4 spaces
-set softtabstop=4 " set softtabstop to 4 spaces
-set expandtab " set expandtab on, the tab will be change to space automaticaly
-set smarttab
-set shiftround
-
-set clipboard=unnamed,unnamedplus " use clipboard register '*'(unnamed) and '+'(unnamedplus) for all y, d, c, p ops
-
-set guioptions+=b " Present the bottom scrollbar when the longest visible line exceen the window
-set guioptions-=m " disable menu
-set guioptions-=T " disable toolbar
-
-set langmenu=none " always use English menu
-
 set autoread " auto read same-file change
-
-set showmatch " show matching paren, actually shows
-set matchtime=0 " 0 second to show the matching paren ( much faster )
-set number " show lineNumber
-set scrolloff=5 " keep cursor away from edges of screen
-set sidescrolloff=10
-set sidescroll=1
-
-set nowrap " I don't like wrap, cause in split window mode, it feel strange
-
-set wildmenu " turn on wild menu, try typing :h and press <Tab>
-set wildignore+=*.a,*.o
-set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
-set wildignore+=.DS_Store,.git,.hg,.svn
-set wildignore+=*~,*.swp,*.tmp
-
-set ruler " show the cursor position all the time
-set showcmd " display incomplete commands
-set showmode " display edit mode
+set autowrite " auto write when make...
+set backspace=indent,eol,start " Make backspace behave in a sane manner, allow backspacing over everything in insert mode.
+set belloff=all
+set clipboard=unnamed,unnamedplus " use clipboard register '*'(unnamed) and '+'(unnamedplus) for all y, d, c, p ops
 set cmdheight=1 " 1 screen lines to use for the command-line
-set hidden " allow to change buffer without saving
-set shortmess=atIO " shortens messages to avoid 'press a key' prompt
-set lazyredraw " do not redraw while executing macros (much faster)
-set display+=lastline " for easy browse last line with wrap text
-
-set showfulltag " show tag with function protype.
-
-set hlsearch " highlight search
-set incsearch " do incremental searching
-set ignorecase " Set search/replace pattern to ignore case
-set smartcase " Set smartcase mode on, If there is upper case character in the search patern, the 'ignorecase' option will be override.
-
-set history=50 " keep 50 lines of command line history
-set updatetime=1000 " default = 4000
-set nobackup " make no backup file and leave it around
-set noswapfile " no swap file
-
-set statusline=[%F]%h%w%r%m%=[%{strlen(&ft)?&ft:'none'},%{(&fenc==\"\"?&enc:&fenc)},%{&fileformat}][Line:%l/%L,Column:%c][%p%%]
-set laststatus=2
-
-set whichwrap=b,s,<,>,[,]
-set formatoptions=mB
-
-set fileformats=unix,dos,mac " auto detect file formats
-
-set encoding=utf-8
-set fileencodings=ucs-bom,utf-8,chinese,japanese " auto detect file encodings
-
 set complete=.,w,b,u,i " default is '.,w,b,u,t,i', tags match is not from the word start, disable it
 set completeopt=menu
-
-set nrformats= " increase/decrease number format to decimal (default is octal)
-set virtualedit=block " In Visual Block Mode, cursor can be positioned where there is no actual character
-set mouse=a " use mouse
-set nomousehide " do not hide mouse
-
 set diffopt=filler,vertical,foldcolumn:1
-
-set autowrite " auto write when make...
-
+set display+=lastline " for easy browse last line with wrap text
+set encoding=utf-8
+set expandtab " set expandtab on, the tab will be change to space automaticaly
+set fileencodings=ucs-bom,utf-8,chinese,japanese " auto detect file encodings
+set fileformats=unix,dos,mac " auto detect file formats
+set formatoptions=mB
+set guioptions+=b " Present the bottom scrollbar when the longest visible line exceen the window
+set guioptions-=T " disable toolbar
+set guioptions-=m " disable menu
+set hidden " allow to change buffer without saving
+set history=50 " keep 50 lines of command line history
+set hlsearch " highlight search
+set ignorecase " Set search/replace pattern to ignore case
+set incsearch " do incremental searching
+set langmenu=none " always use English menu
+set laststatus=2
+set lazyredraw " do not redraw while executing macros (much faster)
+set matchtime=0 " 0 second to show the matching paren ( much faster )
+set mouse=a " use mouse
+set nobackup " make no backup file and leave it around
 set nojoinspaces " join line with one space after .
-
-set ttyfast
-
+set nomousehide " do not hide mouse
 set nostartofline " keep column position when G etc.
-
+set noswapfile " no swap file
+set nowrap " I don't like wrap, cause in split window mode, it feel strange
+set nrformats= " increase/decrease number format to decimal (default is octal)
+set number " show lineNumber
+set ruler " show the cursor position all the time
+set scrolloff=5 " keep cursor away from edges of screen
+set shiftround
+set shiftwidth=4 " set indent to 4 spaces
+set shortmess=atIO " shortens messages to avoid 'press a key' prompt
+set showcmd " display incomplete commands
+set showfulltag " show tag with function protype.
+set showmatch " show matching paren, actually shows
+set showmode " display edit mode
+set sidescroll=1
+set sidescrolloff=10
+set smartcase " Set smartcase mode on, If there is upper case character in the search patern, the 'ignorecase' option will be override.
+set smartindent
+set smarttab
+set softtabstop=4 " set softtabstop to 4 spaces
+set statusline=[%F]%h%w%r%m%=[%{strlen(&ft)?&ft:'none'},%{(&fenc==\"\"?&enc:&fenc)},%{&fileformat}][Line:%l/%L,Column:%c][%p%%]
+set tabstop=4 " set tabstop to 4 spaces
+set ttyfast
+set updatetime=1000 " default = 4000
+set virtualedit=block " In Visual Block Mode, cursor can be positioned where there is no actual character
+set whichwrap=b,s,<,>,[,]
+set wildignore+=*.a,*.o
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+set wildignore+=*~,*.swp,*.tmp
+set wildignore+=.DS_Store,.git,.hg,.svn
+set wildmenu " turn on wild menu, try typing :h and press <Tab>
 " ------------------------------------------------------------------
 " Functions
 " ------------------------------------------------------------------
@@ -191,16 +165,6 @@ endf
 " show current highlight group
 func SyntaxItem()
   echo synIDattr(synID(line("."), col("."), 1), "name")
-endf
-
-" build from current dir
-"let &makeprg = '[[ -f Makefile ]] && make || make -C ..'
-func Build()
-    "exe "cd %:h"
-    silent exe "make"
-    silent exe "cw"
-    silent exe "cc"
-    exe "redraw!"
 endf
 
 " toggle window size

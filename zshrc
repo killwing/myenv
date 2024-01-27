@@ -155,21 +155,23 @@ alias -s tgz='tar xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar xjvf'
 
+# better
+alias npm='pnpm'
+alias vi='nvim'
+alias cat='bat -p'
+
 alias tgc='tar czvf'
 alias tgl='tar tzvf'
 alias pa='ps auxf'
 alias pt='ps H -o user,pid,lwp,nlwp,%cpu,%mem,vsz,rss,stat,start,time,command,comm,wchan -p'
 alias h='history'
 
-alias vi='vim'
 alias fu='fuser -vun'
 alias fn='find . -name'
 alias fp='find . -path'
 alias nt='netstat -lnptu'
-#alias nc='netcat -vz'
 alias dud='du -hc --max-depth=1'
 alias dft='df -Th'
-alias cat='bat -p'
 
 alias agi='apt-get install'
 alias sc='systemctl'
@@ -179,10 +181,8 @@ alias ris='printf "\033c"' # hard reset
 
 alias kc=kubectl
 alias cl=colima
-alias nc='colima nerdctl --'
 alias http='http -s monokai'
 alias pc='proxychains4'
-alias npm='pnpm'
 #source <(kubectl completion zsh)
 
 kubeon
