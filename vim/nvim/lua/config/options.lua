@@ -3,6 +3,8 @@
 -- Add any additional options here
 
 vim.o.guifont = "JetBrains Mono:h16"
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 
 --[[
 local alpha = function()
