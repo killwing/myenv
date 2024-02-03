@@ -1,5 +1,5 @@
 return {
-  { "shatur/neovim-ayu" },
+  { "killwing/neovim-ayu" },
 
   -- Configure LazyVim to load theme
   {
