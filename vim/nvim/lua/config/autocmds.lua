@@ -11,3 +11,10 @@ vim.api.nvim_create_autocmd("FileType", {
     end)
   end,
 })
+
+-- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+--   pattern = "*.md.html",
+--   callback = function()
+--     vim.opt_local.filetype = "markdown"
+--   end,
+-- })

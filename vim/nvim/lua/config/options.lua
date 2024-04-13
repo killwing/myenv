@@ -5,6 +5,7 @@
 vim.o.guifont = "JetBrains Mono:h16"
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
+vim.o.noswapfile = true
 
 --[[
 local alpha = function()
