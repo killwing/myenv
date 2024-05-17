@@ -9,6 +9,28 @@ end
 
 return {
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        gopls = {
+          settings = {
+            gopls = {
+              hints = {
+                assignVariableTypes = false,
+                compositeLiteralFields = false,
+                compositeLiteralTypes = false,
+                constantValues = false,
+                functionTypeParameters = false,
+                parameterNames = false,
+                rangeVariableTypes = false,
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
     opts = function()
@@ -160,5 +182,8 @@ return {
       silent_chdir = true,
       show_hidden = true,
     },
+  },
+  {
+    "Bekaboo/dropbar.nvim",
   },
 }

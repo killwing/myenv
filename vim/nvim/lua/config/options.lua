@@ -2,11 +2,13 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+-- vim options (vim.opt for lua)
 vim.o.guifont = "JetBrains Mono:h16"
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
-vim.o.noswapfile = true
+vim.o.swapfile = false
 
+-- global vars
 --[[
 local alpha = function()
   return string.format("%x", math.floor((255 * vim.g.transparency) or 0.8))
