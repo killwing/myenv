@@ -149,7 +149,6 @@ bindkey '^[[Z' reverse-menu-complete
 
 bindkey -M menuselect '^M' .accept-line
 
-alias -s go='go run'
 alias -s gz='tar xzvf'
 alias -s tgz='tar xzvf'
 alias -s zip='unzip'
@@ -183,6 +182,7 @@ alias kc=kubectl
 alias cl=colima
 alias http='http -s monokai'
 alias pc='proxychains4'
+alias zj='zellij'
 #source <(kubectl completion zsh)
 
 kubeon
@@ -190,12 +190,6 @@ kubeon
 KUBE_PS1_SYMBOL_DEFAULT='\u2638\ufe0f '
 
 # set other local envs in .zshenv
-export PATH=/usr/local/bin:$HOME/bin:$HOME/go/bin:$HOME/.myenv/scripts:$HOME/.krew/bin:$PATH
+export PATH=$PATH:$HOME/bin:$HOME/go/bin:$HOME/.myenv/scripts:$HOME/.krew/bin
 export MACOSX_DEPLOYMENT_TARGET=12.0
-
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=true
-export HOMEBREW_INSTALL_FROM_API=1
-export HOMEBREW_API_DOMAIN="https://mirrors.aliyun.com/homebrew-bottles/api"
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/brew.git"
-export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/homebrew-core.git"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.aliyun.com/homebrew/homebrew-bottles"
