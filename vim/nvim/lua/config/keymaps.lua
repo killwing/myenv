@@ -3,8 +3,6 @@
 -- Add any additional keymaps here
 
 local map = vim.keymap.set
-map({ "n", "t" }, "<leader>;", "<C-/>", { desc = "Terminal", remap = true })
-
 if vim.g.vscode then
   local vscode = require("vscode-neovim")
   map("n", "gr", function()

@@ -124,17 +124,6 @@ return {
     },
   },
   {
-    -- https://github.com/ahmedkhalf/project.nvim/issues/61#issuecomment-1104697236
-    "ahmedkhalf/project.nvim",
-    opts = {
-      manual_mode = false,
-      patterns = { ".git" },
-      detection_methods = { "pattern" },
-      silent_chdir = true,
-      show_hidden = true,
-    },
-  },
-  {
     "Bekaboo/dropbar.nvim",
   },
 }
