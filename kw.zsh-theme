@@ -13,7 +13,7 @@ fi
 local current_dir='%{$terminfo[bold]$FG[082]%}%~ %{$reset_color%}'
 local git_branch='$(git_prompt_info)'
 #local rvm_ruby='$(ruby_prompt_info)'
-#local venv_prompt='$(virtualenv_prompt_info)'
+local venv_prompt='$(virtualenv_prompt_info)'
 local kube_prompt='$(kube_ps1)'
 local background_jobs="%(1j. [%{$fg[yellow]%}%j%{$reset_color%}%{$fg[red]%}z%{$reset_color%}] .)"
 

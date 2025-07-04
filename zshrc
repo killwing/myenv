@@ -59,7 +59,7 @@ DISABLE_AUTO_UPDATE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git kube-ps1 autojump zsh-autosuggestions kubectl
+  git kube-ps1 autojump zsh-autosuggestions kubectl virtualenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -149,10 +149,14 @@ bindkey '^[[Z' reverse-menu-complete
 
 bindkey -M menuselect '^M' .accept-line
 
-alias -s gz='tar xzvf'
-alias -s tgz='tar xzvf'
+alias -s go='go run'
+alias -s gz='gunzip'
 alias -s zip='unzip'
+alias -s tgz='tar xzvf'
 alias -s bz2='tar xjvf'
+alias -s tar.xz='tar xvf'
+alias -s tar.gz='tar xvf'
+alias -s tar='tar xvf'
 
 # better
 alias npm='pnpm'
@@ -193,3 +197,4 @@ KUBE_PS1_SYMBOL_DEFAULT='\u2638\ufe0f '
 export PATH=$PATH:$HOME/bin:$HOME/go/bin:$HOME/.myenv/scripts:$HOME/.krew/bin
 export MACOSX_DEPLOYMENT_TARGET=12.0
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=true
+
