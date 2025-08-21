@@ -9,8 +9,10 @@
     st = status
     co = checkout
     ci = commit
+    ca = commit --amend
     nc = commit --allow-empty-message -m ''
     br = branch
+    cl = clean -fd
     sm = submodule
     smu = submodule update --init --recursive
     df = diff
@@ -19,6 +21,11 @@
     rs = restore
     rss = restore --staged --worktree
     sw = switch
+    rt = reset --hard
+    rtm = reset --hard origin/main
+    pm = push origin HEAD:topic/kelvin/main
+    pmf = push origin HEAD:topic/kelvin/main -f
+    tk = branch -u origin/topic/kelvin/main
 [core]
     pager = git-split-diffs --color | less -RFX
     editor = nvim

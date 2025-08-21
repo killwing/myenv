@@ -155,14 +155,14 @@ alias -s gz='gunzip'
 alias -s zip='unzip'
 alias -s tgz='tar xzvf'
 alias -s bz2='tar xjvf'
-alias -s tar.xz='tar xvf'
-alias -s tar.gz='tar xvf'
+alias -s tar.xz='tar xJvf'
+alias -s tar.gz='tar xzvf'
 alias -s tar='tar xvf'
 
 # better
 alias npm='pnpm'
 alias vi='nvim'
-alias cat='bat -p'
+alias cat='bat -pp'
 
 alias tgc='tar czvf'
 alias tgl='tar tzvf'
@@ -178,6 +178,7 @@ alias dud='du -hc --max-depth=1'
 alias dft='df -Th'
 
 alias agi='apt-get install'
+alias bb='brew bundle'
 alias sc='systemctl'
 alias pj='python -m json.tool'
 alias sf='sift --git --group -n'
@@ -195,6 +196,6 @@ kubeon
 KUBE_PS1_SYMBOL_DEFAULT='\u2638\ufe0f '
 
 # set other local envs in .zshenv
-export PATH=$PATH:$HOME/bin:$HOME/go/bin:$HOME/.myenv/scripts:$HOME/.krew/bin
-export MACOSX_DEPLOYMENT_TARGET=12.0
+export PATH=/opt/homebrew/bin:$PATH:$HOME/bin:$HOME/go/bin:$HOME/.myenv/scripts:$HOME/.krew/bin:$HOME/gdrive/work/bin
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=true
+
