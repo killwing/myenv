@@ -150,17 +150,17 @@ bindkey '^[[Z' reverse-menu-complete
 
 bindkey -M menuselect '^M' .accept-line
 
-alias -s go='go run'
+alias -s xz='tar xJvf'
 alias -s gz='gunzip'
 alias -s zip='unzip'
 alias -s tgz='tar xzvf'
 alias -s bz2='tar xjvf'
-alias -s tar.xz='tar xJvf'
-alias -s tar.gz='tar xzvf'
 alias -s tar='tar xvf'
+alias -s go='go run'
 
 # better
 alias npm='pnpm'
+alias npx='pnpx'
 alias vi='nvim'
 alias cat='bat -pp'
 

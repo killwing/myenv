@@ -23,9 +23,6 @@
     sw = switch
     rt = reset --hard
     rtm = reset --hard origin/main
-    pm = push origin HEAD:topic/kelvin/main
-    pmf = push origin HEAD:topic/kelvin/main -f
-    tk = branch -u origin/topic/kelvin/main
 [core]
     pager = git-split-diffs --color | less -RFX
     editor = nvim
