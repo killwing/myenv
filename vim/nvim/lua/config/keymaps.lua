@@ -12,6 +12,4 @@ if vim.g.vscode then
   map("n", "gi", function()
     vscode.call("editor.action.goToImplementation")
   end, { desc = "go to implementation" })
-
-  vim.opt.spell = false
 end

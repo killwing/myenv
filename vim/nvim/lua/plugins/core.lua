@@ -90,7 +90,7 @@ return {
     },
   },
   {
-    "echasnovski/mini.map",
+    "nvim-mini/mini.map",
     config = function()
       local map = require("mini.map")
       map.setup({

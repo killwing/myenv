@@ -9,7 +9,7 @@
     st = status
     co = checkout
     ci = commit
-    ca = commit --amend
+    ca = commit --amend --no-edit
     nc = commit --allow-empty-message -m ''
     br = branch
     cl = clean -fd
@@ -19,7 +19,8 @@
     dc = diff --cached
     dt = diff --no-index
     rs = restore
-    rss = restore --staged --worktree
+    rss = restore --staged
+    rsw = restore --staged --worktree
     sw = switch
     rt = reset --hard
     rtm = reset --hard origin/main

@@ -1,0 +1,41 @@
+maximize = true
+#theme = Catppuccin Mocha
+font-size = 18
+font-thicken = true
+background = #121212
+foreground = #CCCCCC
+split-divider-color = #338833
+#macos-titlebar-style = hidden
+window-save-state = always
+copy-on-select = clipboard
+background-opacity = 0.9
+cursor-style = block
+cursor-style-blink = true
+cursor-opacity = 0.8
+shell-integration-features = no-cursor,no-title
+tab-inherit-working-directory = false
+window-inherit-working-directory = false
+confirm-close-surface = false
+
+keybind = cmd+f=start_search
+keybind = chain=search_selection
+keybind = global:f12=toggle_visibility
+keybind = global:cmd+backquote=toggle_quick_terminal
+keybind = cmd+left=previous_tab
+keybind = cmd+right=next_tab
+keybind = cmd+w=close_window
+keybind = cmd+up=goto_window:previous
+keybind = cmd+down=goto_window:next
+keybind = cmd+enter=toggle_split_zoom
+
+# for zellij
+#macos-option-as-alt = left
+#keybind = alt+left=unbind
+#keybind = alt+right=unbind
+
+# https://github.com/sahaj-b/ghostty-cursor-shaders
+custom-shader = shaders/cursor_warp.glsl
+custom-shader = shaders/ripple_cursor.glsl
+# https://github.com/0xhckr/ghostty-shaders (https://catskull.net/fun-with-ghostty-shaders.html)
+#custom-shader = ghostty-shaders/dither.glsl
+

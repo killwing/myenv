@@ -33,7 +33,7 @@ DISABLE_AUTO_UPDATE="true"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -189,13 +189,15 @@ alias cl=colima
 alias http='http -s monokai'
 alias pc='proxychains4'
 alias zj='zellij'
+alias ac='container'
 #source <(kubectl completion zsh)
 
 kubeon
 
-KUBE_PS1_SYMBOL_DEFAULT='\u2638\ufe0f '
+KUBE_PS1_SYMBOL_DEFAULT='\u2638\ufe0f'
+KUBE_PS1_SEPARATOR=""
 
 # set other local envs in .zshenv
-export PATH=/opt/homebrew/bin:$PATH:$HOME/bin:$HOME/go/bin:$HOME/.myenv/scripts:$HOME/.krew/bin:$HOME/gdrive/work/bin
+export PATH=/opt/homebrew/bin:$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.myenv/scripts:$HOME/.krew/bin:$HOME/gdrive/work/bin
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=true
 
