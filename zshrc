@@ -121,6 +121,30 @@ function lslp {
     lsof -nP -i4TCP:$1 | grep LISTEN
 }
 
+function lnc() {
+    if [ -z "$1" ]; then
+        echo "target not exist"
+        return 1
+    fi
+    ln -shf "$1" current
+}
+
+function proxy5() {
+    local PROXY_URL="socks5://localhost:3128"
+
+    if [ -n "$ALL_PROXY" ]; then
+        unset HTTP_PROXY
+        unset HTTPS_PROXY
+        unset ALL_PROXY
+        echo " 🔴 Proxy disabled."
+    else
+        export HTTP_PROXY="$PROXY_URL"
+        export HTTPS_PROXY="$PROXY_URL"
+        export ALL_PROXY="$PROXY_URL"
+        echo " 🟢 Proxy enabled: $PROXY_URL"
+    fi
+}
+
 # ctrl
 # tip: use `xxd` / `cat` / `showkey -a` to show the keycode
 # in iTerm2:
@@ -200,4 +224,5 @@ KUBE_PS1_SEPARATOR=""
 # set other local envs in .zshenv
 export PATH=/opt/homebrew/bin:$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.myenv/scripts:$HOME/.krew/bin:$HOME/gdrive/work/bin
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=true
+export NO_PROXY="localhost,127.0.0.1,.local,192.168.64.0/24"
 

@@ -16,6 +16,7 @@ shell-integration-features = no-cursor,no-title
 tab-inherit-working-directory = false
 window-inherit-working-directory = false
 confirm-close-surface = false
+scrollback-limit = 100000000
 
 keybind = cmd+f=start_search
 keybind = chain=search_selection
